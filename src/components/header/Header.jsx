@@ -1,14 +1,11 @@
-import React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -20,51 +17,26 @@ import {
   faCircleUser,
   faEnvelope,
 } from "@fortawesome/free-regular-svg-icons";
-import { Divider } from "@mui/material";
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+import { Button, Divider, Menu, Paper } from "@mui/material";
+import AppMenu from "./AppMenu";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user data exists in localStorage
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user);
+  }, []);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -112,7 +84,16 @@ const Header = () => {
       <Divider />
       <MenuItem className="text-xs">Notifications</MenuItem>
       <Divider />
-      <MenuItem className="text-xs">Logout</MenuItem>
+      <MenuItem
+        className="text-xs"
+        onClick={() => {
+          localStorage.removeItem("user");
+          setIsLoggedIn(false);
+          navigate("/");
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -141,24 +122,14 @@ const Header = () => {
         </IconButton>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
+        <IconButton size="large" aria-label="show 17 new notifications" color="inherit">
           <Badge badgeContent={17} color="error">
             <FontAwesomeIcon icon={faBell} />
           </Badge>
         </IconButton>
       </MenuItem>
       <MenuItem onMouseOver={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
+        <IconButton size="large" aria-label="account of current user" aria-controls="primary-search-account-menu" aria-haspopup="true" color="inherit">
           <FontAwesomeIcon icon={faCircleUser} />
         </IconButton>
       </MenuItem>
@@ -167,98 +138,44 @@ const Header = () => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar
-          position="static"
-          className="py-2"
-          sx={{ backgroundColor: "#48afff" }}
-        >
+    <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" className="py-2" sx={{ backgroundColor: "#48afff" }}>
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <FontAwesomeIcon icon={faBars} />
+            <IconButton size="large" edge="start" color="inherit" aria-label="open drawer">
+              <FontAwesomeIcon icon={faBars} onClick={toggleDrawer(true)} />
             </IconButton>
-            <img
-              className="w-24 md:w-36"
-              src="https://static.priceoye.pk/images/logo.svg"
-              alt=""
-            />
-
-            <Box className="mx-auto flex justify-center items-center w-full">
-              <Search
-                className="flex justify-between items-center w-full rounded-md py-1"
-                sx={{
-                  backgroundColor: "white",
-                  transition: "background-color 0.3s ease",
-                }}
-              >
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{
-                    "aria-label": "search",
-                    style: {
-                      color: "#333",
-                    },
-                  }}
-                  className="flex-1 md:w-96 bg-white"
-                />
-                <Box
-                  className="mr-3 order-last transition-colors"
-                  sx={{ "&:hover": { backgroundColor: "white" } }}
-                >
-                  <FontAwesomeIcon
-                    className="text-[#48afff] text-2xl"
-                    icon={faMicrophone}
-                  />
-                </Box>
-              </Search>
+            <Link to={"/"}>
+              <img className="w-24 md:w-36" src="https://static.priceoye.pk/images/logo.svg" alt="" />
+            </Link>
+            <Box className="flex justify-center items-center h-full w-full">
+              <Paper component="form" className="flex justify-center items-center ml-2">
+                <InputBase className="md:w-96 px-4" placeholder="Search..." inputProps={{ "aria-label": "search google maps" }} />
+                <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+                  <FontAwesomeIcon className="text-[#48afff]" icon={faMicrophone} />
+                </IconButton>
+              </Paper>
             </Box>
-
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit"
-              >
-                <Badge badgeContent={4} color="error">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                aria-label="show 17 new notifications"
-                color="inherit"
-              >
-                <Badge badgeContent={17} color="error">
-                  <FontAwesomeIcon icon={faBell} />
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onMouseOver={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <FontAwesomeIcon icon={faCircleUser} />
-              </IconButton>
+            <Box sx={{ display: { xs: "none", md: "flex" } }} className="flex items-center">
+              {isLoggedIn ? (
+                <>
+                  <IconButton size="large" edge="end" aria-label="account of current user" aria-controls={menuId} aria-haspopup="true" onMouseOver={handleProfileMenuOpen} color="inherit">
+                    <FontAwesomeIcon icon={faCircleUser} />
+                  </IconButton>
+                </>
+              ) : (
+                <Box className="flex gap-2">
+                  <Button className="w-28 h-10" variant="contained" sx={{ textTransform: "none", backgroundColor: "white", color: "#48afff", border: "1px solid #48afff", "&:hover": { backgroundColor: "transparent", color: "white", border: "1px solid white" }, paddingX: 2, paddingY: 1 }}>
+                    <Link to={"sign-in"}>Log in</Link>
+                  </Button>
+                  <Button className="w-28 h-10" variant="outlined" sx={{ textTransform: "none", backgroundColor: "transparent", color: "white", border: "1px solid white", "&:hover": { backgroundColor: "white", color: "#48afff" }, paddingX: 2, paddingY: 1 }}>
+                    <Link to={"sign-up"}>Register</Link>
+                  </Button>
+                </Box>
+              )}
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
+              <IconButton size="large" aria-label="show more" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen} color="inherit">
                 <FontAwesomeIcon icon={faEllipsisVertical} />
               </IconButton>
             </Box>
@@ -266,6 +183,7 @@ const Header = () => {
         </AppBar>
         {renderMobileMenu}
         {renderMenu}
+        <AppMenu open={open} toggleDrawer={toggleDrawer} />
       </Box>
     </>
   );

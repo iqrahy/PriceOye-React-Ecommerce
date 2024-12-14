@@ -1,14 +1,11 @@
 // import './App.css';
+import SignUp from './components/auth/sign-up/SignUp';
 import Header from './components/header/Header';
 
 function App() {
   return (
    <>
-
-   <Header/>
-   {/* <h1 className="text-3xl font-bold underline text-center text-cyan-400">React app</h1> */}
-  
-   
+   <SignUp />
    </>
   );
 }
