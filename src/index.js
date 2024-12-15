@@ -13,6 +13,10 @@ const router = createBrowserRouter([
       element: <Layout />,
       children: [
         {
+          path: "",
+          element: <App />,
+        },
+        {
           path: "sign-up",
           element: <SignUp />,
         },

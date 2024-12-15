@@ -1,16 +1,11 @@
-// import './App.css';
-import SignUp from './components/auth/sign-up/SignUp';
-import Header from './components/header/Header';
+import Home from './components/home/Home';
 
 function App() {
   return (
    <>
-   <SignUp />
+   <Home/>
    </>
   );
 }
 
 export default App;
-
-// tag for FontAwesome icons
- {/* <FontAwesomeIcon className='text-red-900' icon={faFaceAngry}/> */}

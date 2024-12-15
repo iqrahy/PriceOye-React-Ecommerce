@@ -1,8 +1,11 @@
 import React from 'react'
+import CategoryBar from './category-bar/CategoryBar'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <CategoryBar/>
+    </>
   )
 }
 
