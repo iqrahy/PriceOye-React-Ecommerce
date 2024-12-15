@@ -84,7 +84,7 @@ const Header = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem>My account</MenuItem>
+      <MenuItem><Link to={'account'}>My account</Link></MenuItem>
       <Divider />
       <MenuItem className="text-xs !important">Track my order</MenuItem>
       <Divider />

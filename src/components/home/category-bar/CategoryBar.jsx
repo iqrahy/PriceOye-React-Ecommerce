@@ -54,11 +54,13 @@ const CategoryBar = () => {
   ];
 
   return (
-    <Box className="py-2">
+
+    <Box className="pb-4 bg-slate-100">
+
+<Box className="py-2 bg-white">
       <Swiper
         slidesPerView={8}
         spaceBetween={20}
-     
         breakpoints={{
           320: { slidesPerView: 3, spaceBetween: 8 },
           480: { slidesPerView: 3, spaceBetween: 15 },
@@ -81,6 +83,8 @@ const CategoryBar = () => {
         ))}
       </Swiper>
     </Box>
+    </Box>
+  
   );
 };
 

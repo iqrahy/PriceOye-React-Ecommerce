@@ -55,11 +55,10 @@ const HeroSection = () => {
     <div>
         <Swiper
         slidesPerView={1}
-        spaceBetween={30}
+        spaceBetween={0}
         loop={true}
         navigation={true}
         modules={[Navigation]}
-        className="mySwiper"
       >
 
        {heroImages.map((item)=>(
