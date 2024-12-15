@@ -1,16 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation"; 
-
-// import './styles.css';
-
-// import required modules
-import { Navigation } from "swiper/modules";
+import "swiper/css/navigation";
 import { Box, Typography } from "@mui/material";
-
 
 const CategoryBar = () => {
   const product = [
@@ -66,26 +58,25 @@ const CategoryBar = () => {
       <Swiper
         slidesPerView={8}
         spaceBetween={20}
-        navigation 
-        modules={[Navigation]} 
+     
         breakpoints={{
           320: { slidesPerView: 3, spaceBetween: 8 },
           480: { slidesPerView: 3, spaceBetween: 15 },
-          768: { slidesPerView: 5, spaceBetween: 20 }, 
+          768: { slidesPerView: 5, spaceBetween: 20 },
           1024: { slidesPerView: 8, spaceBetween: 25 },
         }}
         className="mySwiper"
       >
         {product.map((item) => (
           <SwiperSlide key={item.id}>
-             <Box className="flex flex-col justify-center items-center">
-            <img
-            className="object-contain w-12 h-12"
-              src={item.image}
-              alt={item.text}
-            />
-            <Typography sx={{fontSize:"13px"}}>{item.title}</Typography>
-          </Box>
+            <Box className="flex flex-col justify-center items-center">
+              <img
+                className="object-contain w-12 h-12"
+                src={item.image}
+                alt={item.text}
+              />
+              <Typography sx={{ fontSize: "13px" }}>{item.title}</Typography>
+            </Box>
           </SwiperSlide>
         ))}
       </Swiper>
