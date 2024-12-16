@@ -30,10 +30,9 @@ const SignIn = () => {
   const signInHandler = (data) => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
-    // Check if the entered email and password match the stored data
     if (storedUser && storedUser.email === data.email && storedUser.password === data.password) {
-      setIsLoggedIn(true); // Set isLoggedIn to true after successful login
-      navigate("/"); // Redirect to home page
+      setIsLoggedIn(true); 
+      navigate("/"); 
       alert("Successfully logged in!");
     } else {
       alert("Invalid email or password");

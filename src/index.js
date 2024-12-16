@@ -7,6 +7,7 @@ import Layout from './components/layout/Layout';
 import SignUp from './components/auth/sign-up/SignUp';
 import SignIn from './components/auth/sign-in/SignIn';
 import Error from './components/error/Error';
+import MyAccount from './components/my-account/MyAccount';
 
 const router = createBrowserRouter([
     {
@@ -14,12 +15,20 @@ const router = createBrowserRouter([
       element: <Layout />,
       children: [
         {
+          path: "",
+          element: <App />,
+        },
+        {
           path: "sign-up",
           element: <SignUp />,
         },
         {
             path: "sign-in",
             element: <SignIn />,
+          },
+          {
+            path: "account",
+            element: <MyAccount />,
           },
     
       ],
