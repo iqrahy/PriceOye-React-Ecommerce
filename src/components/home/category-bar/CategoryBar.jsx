@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+// import "swiper/css";
 import "swiper/css/navigation";
 import { Box, Typography } from "@mui/material";
 
@@ -67,7 +67,7 @@ const CategoryBar = () => {
           768: { slidesPerView: 5, spaceBetween: 20 },
           1024: { slidesPerView: 8, spaceBetween: 25 },
         }}
-        className="mySwiper"
+        className="mySwiper container mx-auto"
       >
         {product.map((item) => (
           <SwiperSlide key={item.id}>

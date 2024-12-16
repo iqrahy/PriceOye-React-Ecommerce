@@ -8,6 +8,7 @@ import SignUp from './components/auth/sign-up/SignUp';
 import SignIn from './components/auth/sign-in/SignIn';
 import Error from './components/error/Error';
 import MyAccount from './components/my-account/MyAccount';
+import UpdateProfile from './components/my-account/update-profile/UpdateProfile';
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             path: "account",
             element: <MyAccount />,
           },
+          {
+            path: "account/profile",
+            element: <UpdateProfile/>
+          }
     
       ],
       errorElement: <Error/>
