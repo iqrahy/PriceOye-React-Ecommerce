@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import SignUp from './components/auth/sign-up/SignUp';
 import SignIn from './components/auth/sign-in/SignIn';
+import Error from './components/error/Error';
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
           },
     
       ],
+      errorElement: <Error/>
     },
   ]);
 
