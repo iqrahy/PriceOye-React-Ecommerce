@@ -10,9 +10,11 @@ import Img5 from "../../../assets/hero-5.jpg"
 import Img6 from "../../../assets/hero-6.jpg"
 import Img7 from "../../../assets/hero-7.jpg"
 import Img8 from "../../../assets/hero-8.jpg"
+import Banner from "../../../assets/sale-campaign-banner.gif"
 
 
 import { Navigation}  from 'swiper/modules';
+import { Box } from '@mui/material';
 
 const HeroSection = () => {
 
@@ -52,7 +54,7 @@ const HeroSection = () => {
     ]
 
   return (
-    <div>
+    <>
         <Swiper
         slidesPerView={1}
         spaceBetween={0}
@@ -68,7 +70,12 @@ const HeroSection = () => {
        ))}
        
       </Swiper>
-    </div>
+
+       <Box className="py-5 lg:py-7 md:px-12 bg-slate-100">
+        <img src={Banner} alt="" />
+       </Box>
+
+    </>
   )
 }
 
