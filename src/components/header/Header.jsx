@@ -30,15 +30,13 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const user = localStorage.getItem("user");
-    setIsLoggedIn(!!user);
-
-  }, []);
-
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const userData = localStorage.getItem("user");
+    const storedUser = userData ? JSON.parse(userData) : null;
+  
+    setIsLoggedIn(!!storedUser);
+  
     if (storedUser && storedUser.fullName) {
-      setUserName(storedUser.fullName); 
+      setUserName(storedUser.fullName);
     }
   }, []);
 

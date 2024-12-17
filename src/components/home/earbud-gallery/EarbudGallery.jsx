@@ -1,14 +1,16 @@
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/grid";
-import './swiper.css'
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
+import "./swiper.css";
 
 // import required modules
-import { Grid } from "swiper/modules";
+import { Grid, Pagination } from 'swiper/modules';
+
 
 const EarbudGallery = () => {
   const product = [
@@ -66,16 +68,9 @@ const EarbudGallery = () => {
       originalPrice: 69999,
       discountPercentage: 29,
     },
+ 
     {
       id: 7,
-      image:"https://images.priceoye.pk/xiaomi-redmi-buds-6-lit…less-earbuds-pakistan-priceoye-c4dfa-270x270.webp",
-      title: "Xiaomi Redmi Buds 6 Lite",
-      currentPrice: 5899,
-      originalPrice: 6999,
-      discountPercentage: 16,
-    },
-    {
-      id: 8,
       image:
         "https://images.priceoye.pk/qcy-t13-anc-2-pakistan-priceoye-uvlbc-270x270.webp",
       title: "QCY T13 ANC 2",
@@ -84,7 +79,7 @@ const EarbudGallery = () => {
       discountPercentage: 8,
     },
     {
-      id: 9,
+      id: 8,
       image:
         "https://images.priceoye.pk/realme-buds-t110-pakistan-priceoye-w0l3s-270x270.webp",
       title: "Realme Buds T110",
@@ -93,7 +88,7 @@ const EarbudGallery = () => {
       discountPercentage: 52,
     },
     {
-      id: 10,
+      id: 9,
       image:
         "https://images.priceoye.pk/audionic-airbud-550-pakistan-priceoye-o6fve-270x270.webp",
       title: "Audionic Airbud 550",
@@ -102,7 +97,7 @@ const EarbudGallery = () => {
       discountPercentage: 62,
     },
     {
-      id: 11,
+      id: 10,
       image:
         "https://images.priceoye.pk/imilab-imiki-mt2-wireless-erbuds-pakistan-priceoye-obxhu-270x270.webp",
       title: "Imiki MT2 Wireless Erbuds",
@@ -111,7 +106,7 @@ const EarbudGallery = () => {
       discountPercentage: 44,
     },
     {
-      id: 12,
+      id: 11,
       image:
         "https://images.priceoye.pk/airpods-4-active-noise-cancellation-pakistan-priceoye-uz620-270x270.webp",
       title: "Apple AirPods 4 Active Noise Cancellation",
@@ -130,20 +125,42 @@ const EarbudGallery = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-[100%] h-[300px] lg:h-[400px] mb-52"
+        className="w-[100%] h-[300px] lg:h-[450px] mb-52"
       >
+        <Box className="container mx-auto pt-7 mb:pt-16 pb-7 flex justify-between items-center px-3"> 
+          <Typography className="text-white">Latest Wireless Earbuds</Typography>
+          <Button className="!text-black !bg-white !hover:text-slate-300 !capitalize" variant="contained">View all</Button>
+        </Box>
         <Swiper
-          slidesPerView={4}
+          breakpoints={{
+            320: {
+              slidesPerView: 2,
+            },
+            480: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
           grid={{
             rows: 2,
           }}
           spaceBetween={30}
-          modules={[Grid]}
-          className="mySwiper container mx-auto  "
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Grid, Pagination]}
+          className="mySwiper container mx-auto"
         >
           {product.map((item) => (
-            <SwiperSlide key={item.id} className="absolute top-[25%]">
+            <SwiperSlide key={item.id} className="border bg-white rounded-lg">
+              <Box className="text-center">
               <img className="w-32" src={item.image} alt={item.title} />
+              </Box>
             </SwiperSlide>
           ))}
         </Swiper>

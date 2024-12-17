@@ -22,7 +22,7 @@ const SignIn = () => {
 
   const signInDetails = { email: "", password: "" };
 
-  const { control, handleSubmit, reset, formState: { errors } } = useForm({
+  const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: signInDetails,
     resolver: yupResolver(schema),
   });

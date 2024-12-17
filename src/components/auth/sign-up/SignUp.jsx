@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import {
   Button,
-  Grid,
   IconButton,
   InputAdornment,
   OutlinedInput,
@@ -15,10 +14,12 @@ import {
 } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const navigate = useNavigate();
 
   const schema = yup.object({
     fullName: yup
@@ -52,12 +53,11 @@ const SignUp = () => {
   });
 
   const signUpHandler = (data) => {
-    console.log(data, 'local storage data');
 
     localStorage.setItem("user", JSON.stringify(data));
-
-
+  navigate('/sign-in')
     reset();
+    
   };
 
   return (
