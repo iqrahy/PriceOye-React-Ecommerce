@@ -9,6 +9,7 @@ import SignIn from './components/auth/sign-in/SignIn';
 import Error from './components/error/Error';
 import MyAccount from './components/my-account/MyAccount';
 import UpdateProfile from './components/my-account/update-profile/UpdateProfile';
+import ProtectedRoute from './components/protected-component/ProtectedRoute';
 
 const router = createBrowserRouter([
     {
@@ -29,11 +30,11 @@ const router = createBrowserRouter([
           },
           {
             path: "account",
-            element: <MyAccount />,
+            element: <ProtectedRoute> <MyAccount /></ProtectedRoute>,
           },
           {
             path: "account/profile",
-            element: <UpdateProfile/>
+            element: <ProtectedRoute><UpdateProfile/></ProtectedRoute> 
           }
     
       ],
