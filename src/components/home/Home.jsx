@@ -4,6 +4,7 @@ import HeroSection from './hero-section/HeroSection'
 import EarbudGallery from './earbud-gallery/EarbudGallery'
 import ProductWithMedia from './product-with-media/ProductWithMedia'
 import { Box } from '@mui/material'
+import BestSellers from './best-sellers/BestSellers'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <HeroSection/>
       <EarbudGallery/>
       <ProductWithMedia/>
+      <BestSellers/>
     </Box>
   )
 }
