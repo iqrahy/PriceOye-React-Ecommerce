@@ -20,10 +20,10 @@ const Error = () => {
           </ListItem>
         </List>
 
-        <Link to={'/'}  className="group text-sky-600 transition duration-300">
+        <Link to={'/'}  className="group text-[#48AFFF] transition duration-300">
         Go back
         
-        <span className="block max-w-0 group-hover:max-w-16 transition-all duration-500 h-0.5 bg-sky-600"></span></Link>
+        <span className="block max-w-0 group-hover:max-w-16 transition-all duration-500 h-0.5 bg-[#48AFFF]"></span></Link>
       </Box>
 
       <Box>
