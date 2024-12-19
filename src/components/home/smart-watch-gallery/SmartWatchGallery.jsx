@@ -12,72 +12,72 @@ import { Grid } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import SamsungGalaxyImage from "../../../assets/samsung-galaxy-fit.webp";
 
-const EarbudGallery = () => {
+const SmartWatchGallery = () => {
   const product = [
     {
       id: 1,
       image:
-        "https://images.priceoye.pk/redmi-buds-6-active-wireless-earbuds-pakistan-priceoye-h6kkk-270x270.webp",
-      title: "Redmi Buds 6 Active Wireless Earbuds",
-      currentPrice: '4,549',
-      originalPrice: '7,399',
-      discountPercentage: 39,
-      rating: 5.0,
-      reviews: 17,
+        "	https://images.priceoye.pk/yolo-ultron-smart-watch-pakistan-priceoye-0jv0u-270x270.webp",
+      title: "YOLO Ultron Smart Watch",
+      currentPrice: '7,999',
+      originalPrice: '17,999',
+      discountPercentage: 56,
+      rating: 4.4,
+      reviews: 10,
     },
     {
       id: 2,
       image:
-        "https://images.priceoye.pk/realme-t100-wireless-earbuds-pakistan-priceoye-tq6ud-270x270.webp",
-      title: "Realme T100 Wireless Earbuds",
-      currentPrice: '4,999',
-      originalPrice: '7,000',
-      discountPercentage: 29,
-      rating: 54.9,
-      reviews: 38,
+        "https://images.priceoye.pk/huawei-band-9-pakistan-priceoye-9kqv0-270x270.webp",
+      title: "HUAWEI Band 9",
+      currentPrice: '9,399',
+      originalPrice: '20,000',
+      discountPercentage: 53,
+      rating: 5.0,
+      reviews: 9,
     },
     {
       id: 3,
-      image:
-        "https://images.priceoye.pk/nothing-buds-2-pro-pakistan-priceoye-qouw0-270x270.webp",
-      title: "Nothing Buds Pro 2",
+      image: SamsungGalaxyImage,
+      title: "Samsung Galaxy Fit 3 With One Year Brand Warranty",
       currentPrice: '13,499',
-      originalPrice: '20,000',
-      discountPercentage: 33,
-      rating: 4.5,
-      reviews: 5,
+      originalPrice: '15,999',
+      discountPercentage: 14,
+      rating: 5.0,
+      reviews: 2,
     },
     {
       id: 4,
       image:
-        "https://images.priceoye.pk/anker-r50i-earbuds-pakistan-priceoye-csv44-270x270.webp",
-      title: "Anker R50i Earbuds",
-      currentPrice: '4,611',
-      originalPrice: '7,199',
-      discountPercentage: 36,
-      rating: 4.7,
-      reviews: 30,
+        "	https://images.priceoye.pk/hk9-pro-max-plus-smartwatch-pakistan-priceoye-4n0i7-270x270.webp",
+      title: " HK9 PRO Max Plus Smartwatch ",
+      currentPrice: '5,799',
+      originalPrice: '8,000',
+      discountPercentage: 28,
+      rating: 4.8,
+      reviews: 17,
     },
     {
       id: 5,
       image:
-        "https://images.priceoye.pk/soundpeats-engine4-wireless-earbuds-pakistan-priceoye-40ifu-270x270.webp",
-      title: "Soundpeats Engine4 Wireless Earbuds",
-      currentPrice: '10,518',
-      originalPrice: '14,000',
-      discountPercentage: 25,
-      rating: 4.6,
-      reviews: 13,
+        "	https://images.priceoye.pk/g-tide-r1-smart-watch-pakistan-priceoye-xlubt-270x270.webp",
+      title: "G-TiDE R1 Smart Watch ",
+      currentPrice: '4,979',
+      originalPrice: '10,000',
+      discountPercentage: 50,
+      rating: 5.0,
+      reviews: 26,
     },
     {
       id: 6,
       image:
-        "https://images.priceoye.pk/samsung-galaxy-buds3-pro-pakistan-priceoye-b0lez-270x270.webp",
-      title: "Samsung Galaxy Buds 3 Pro ",
-      currentPrice: '49,799',
-      originalPrice: '69,999',
-      discountPercentage: 29,
+        "https://images.priceoye.pk/mibro-watch-lite-3-pakistan-priceoye-nq89u-270x270.webp",
+      title: "Mibro Watch Lite 3 With Dual Strap ",
+      currentPrice: '11,999',
+      originalPrice: '22,500',
+      discountPercentage: 47,
       rating: 4.7,
       reviews: 7,
     },
@@ -85,66 +85,66 @@ const EarbudGallery = () => {
     {
       id: 7,
       image:
-        "https://images.priceoye.pk/qcy-t13-anc-2-pakistan-priceoye-uvlbc-270x270.webp",
-      title: "QCY T13 ANC 2",
-      currentPrice: '5,499',
-      originalPrice: '6,000',
-      discountPercentage: 8,
-      rating: 5.0,
-      reviews: 1,
+        "https://images.priceoye.pk/mibro-watch-lite3-pro-pakistan-priceoye-v5v3v-270x270.webp",
+      title: "Mibro Watch Lite 3 Pro",
+      currentPrice: '14,799',
+      originalPrice: '18,000',
+      discountPercentage: 18,
+      rating: 4.2,
+      reviews: 5,
     },
     {
       id: 8,
       image:
-        "https://images.priceoye.pk/realme-buds-t110-pakistan-priceoye-w0l3s-270x270.webp",
-      title: "Realme Buds T110",
-      currentPrice: '4,999',
-      originalPrice: '10,500',
+        "	https://images.priceoye.pk/xiaomi-redmi-watch-5-active-pakistan-priceoye-n4ewq-270x270.webp",
+      title: "Xiaomi Redmi Watch 5 Activ",
+      currentPrice: '8,699',
+      originalPrice: '18,000',
       discountPercentage: 52,
-      rating: 4.8,
-      reviews: 11,
+      rating: 4.3,
+      reviews: 3,
     },
     {
       id: 9,
       image:
-        "https://images.priceoye.pk/audionic-airbud-550-pakistan-priceoye-o6fve-270x270.webp",
-      title: "Audionic Airbud 550",
-      currentPrice: '3,811',
-      originalPrice: '9,990',
-      discountPercentage: 62,
-      rating: 4.8,
-      reviews: 537,
+        "https://images.priceoye.pk/ultra-smart-watch-7-in-1-pakistan-priceoye-3ybh3-270x270.webp",
+      title: "Ultra Smart Watch With 7 Straps",
+      currentPrice: '1,679',
+      originalPrice: '8,000',
+      discountPercentage: 79,
+      rating: 4.7,
+      reviews: 195,
     },
     {
       id: 10,
       image:
-        "https://images.priceoye.pk/imilab-imiki-mt2-wireless-erbuds-pakistan-priceoye-obxhu-270x270.webp",
-      title: "Imiki MT2 Wireless Erbuds",
-      currentPrice: '3,899',
-      originalPrice: '6,999',
-      discountPercentage: 44,
-      rating: 4.6,
-      reviews: 14,
+        "https://images.priceoye.pk/realme-watch-pakistan-priceoye-g61ky-270x270.webp",
+      title: "Realme Smart Watch",
+      currentPrice: '3,499',
+      originalPrice: '14,999',
+      discountPercentage: 77,
+      rating: 4.8,
+      reviews: 26,
     },
     {
       id: 11,
       image:
-        "https://images.priceoye.pk/airpods-4-active-noise-cancellation-pakistan-priceoye-uz620.jpeg",
-      title: "Apple AirPods 4 Active Noise Cancellation",
-      currentPrice: '56,499',
-      originalPrice: '95,999',
-      discountPercentage: 41,
-      rating: 5.0,
-      reviews: 3,
+        "	https://images.priceoye.pk/y80-ultra-8-in-1-smart-watch-pakistan-priceoye-wuwt7-270x270.webp",
+      title: "Y80 Ultra 8 in 1 Smart watch",
+      currentPrice: '1,799',
+      originalPrice: '6,000',
+      discountPercentage: 70,
+      rating: 4.4,
+      reviews: 14,
     },
     {
       id: 12,
       image:
-        "https://images.priceoye.pk/samsung-galaxy-buds-2-pro-pakistan-priceoye-tp64b-270x270.webp",
-      title: "Samsung Galaxy Buds 2 Pro",
-      currentPrice: '26,599',
-      originalPrice: '39,999',
-      discountPercentage: 34,
+        "https://images.priceoye.pk/op88-smart-watch-pakistan-priceoye-q11q9-270x270.webp",
+      title: "OP88 Smart Watch",
+      currentPrice: '4,799',
+      originalPrice: '8,000',
+      discountPercentage: 40,
       rating: 4.9,
       reviews: 110,
     },
@@ -154,17 +154,15 @@ const EarbudGallery = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-earbuds-bg-md.png')`,
+          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-smart-watches-bg-md.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-[100%] h-[300px] lg:h-[450px] mb-52"
+        className="w-[100%] h-[300px] lg:h-[450px] mb-52 mt-8"
       >
         <Box className="container mx-auto pt-12 mb:pt-16 pb-7 flex justify-between items-center px-3">
-          <Typography className="text-white">
-            Latest Wireless Earbuds
-          </Typography>
+          <Typography className="text-white">Latest Smart Watches</Typography>
           <Button
             className="!text-black !bg-white !hover:text-slate-300 !capitalize"
             variant="contained"
@@ -173,7 +171,7 @@ const EarbudGallery = () => {
           </Button>
         </Box>
         <Swiper
-         slidesPerView='auto'
+          slidesPerView="auto"
           grid={{
             rows: 2,
           }}
@@ -230,8 +228,12 @@ const EarbudGallery = () => {
           ))}
         </Swiper>
       </Box>
+
+      <Box className="pt-52 lg:pt-28">
+        <img className="object-cover w-full" src="https://static.priceoye.pk/images/bnpl_banner/static-banner-bnpl-v4.jpg" alt="" />
+      </Box>
     </>
   );
 };
 
-export default EarbudGallery;
+export default SmartWatchGallery;

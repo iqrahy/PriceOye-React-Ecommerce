@@ -12,141 +12,141 @@ import { Grid } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import SamsungGalaxyImage from "../../../assets/samsung-galaxy-fit.webp";
 
-const EarbudGallery = () => {
+const MobileGallery = () => {
   const product = [
     {
       id: 1,
       image:
-        "https://images.priceoye.pk/redmi-buds-6-active-wireless-earbuds-pakistan-priceoye-h6kkk-270x270.webp",
-      title: "Redmi Buds 6 Active Wireless Earbuds",
-      currentPrice: '4,549',
-      originalPrice: '7,399',
-      discountPercentage: 39,
+        "	https://images.priceoye.pk/xiaomi-poco-c75-pakistan-priceoye-aowis-270x270.webp",
+      title: "Xiaomi Poco C75",
+      currentPrice: '32,899',
+      originalPrice: '36,999',
+      discountPercentage: 11,
       rating: 5.0,
-      reviews: 17,
+      reviews: 6,
     },
     {
       id: 2,
       image:
-        "https://images.priceoye.pk/realme-t100-wireless-earbuds-pakistan-priceoye-tq6ud-270x270.webp",
-      title: "Realme T100 Wireless Earbuds",
-      currentPrice: '4,999',
-      originalPrice: '7,000',
-      discountPercentage: 29,
-      rating: 54.9,
-      reviews: 38,
+        "	https://images.priceoye.pk/itel-s24-pakistan-priceoye-sabyj-270x270.webp",
+      title: "Itel S24",
+      currentPrice: '25,299',
+      originalPrice: '33,999',
+      discountPercentage: 26,
+      rating: 4.8,
+      reviews: 99,
     },
     {
       id: 3,
-      image:
-        "https://images.priceoye.pk/nothing-buds-2-pro-pakistan-priceoye-qouw0-270x270.webp",
-      title: "Nothing Buds Pro 2",
-      currentPrice: '13,499',
-      originalPrice: '20,000',
-      discountPercentage: 33,
-      rating: 4.5,
-      reviews: 5,
+      image: "	https://images.priceoye.pk/realme-c61-pakistan-priceoye-v5h3g-270x270.webp",
+      title: "Realme C61",
+      currentPrice: '29,300',
+      originalPrice: '32,999',
+      discountPercentage: 11,
+      rating: 4.9,
+      reviews: 23,
     },
     {
       id: 4,
       image:
-        "https://images.priceoye.pk/anker-r50i-earbuds-pakistan-priceoye-csv44-270x270.webp",
-      title: "Anker R50i Earbuds",
-      currentPrice: '4,611',
-      originalPrice: '7,199',
-      discountPercentage: 36,
-      rating: 4.7,
-      reviews: 30,
+        "https://images.priceoye.pk/tecno-spark-30-pakistan-priceoye-rcs5e-270x270.webp",
+      title: "Tecno Spark 30 ",
+      currentPrice: '35,500',
+      originalPrice: '39,999',
+      discountPercentage: 11,
+      rating: 5.0,
+      reviews: 1,
     },
     {
       id: 5,
       image:
-        "https://images.priceoye.pk/soundpeats-engine4-wireless-earbuds-pakistan-priceoye-40ifu-270x270.webp",
-      title: "Soundpeats Engine4 Wireless Earbuds",
-      currentPrice: '10,518',
-      originalPrice: '14,000',
-      discountPercentage: 25,
-      rating: 4.6,
-      reviews: 13,
+        "https://images.priceoye.pk/xiaomi-redmi-a3-pakistan-priceoye-z5m8c-270x270.webp",
+      title: "Xiaomi Redmi A3",
+      currentPrice: '19,299',
+      originalPrice: '23,999',
+      discountPercentage: 20,
+      rating: 4.8,
+      reviews: 282,
     },
     {
       id: 6,
       image:
-        "https://images.priceoye.pk/samsung-galaxy-buds3-pro-pakistan-priceoye-b0lez-270x270.webp",
-      title: "Samsung Galaxy Buds 3 Pro ",
-      currentPrice: '49,799',
-      originalPrice: '69,999',
-      discountPercentage: 29,
-      rating: 4.7,
-      reviews: 7,
+        "	https://images.priceoye.pk/oppo-a3-pakistan-priceoye-hn4ho-270x270.webp",
+      title: "Oppo A3 ",
+      currentPrice: '45,999' ,
+      originalPrice: '49,999',
+      discountPercentage: 8,
+      rating: 5.0,
+      reviews: 3,
     },
 
     {
       id: 7,
       image:
-        "https://images.priceoye.pk/qcy-t13-anc-2-pakistan-priceoye-uvlbc-270x270.webp",
-      title: "QCY T13 ANC 2",
-      currentPrice: '5,499',
-      originalPrice: '6,000',
-      discountPercentage: 8,
-      rating: 5.0,
-      reviews: 1,
+        "	https://images.priceoye.pk/realme-13-plus-5g-pakistan-priceoye-78si6-270x270.webp",
+      title: "Realme 13+ 5G",
+      currentPrice: '77,999',
+      originalPrice: '89,999',
+      discountPercentage: 13,
+      rating: 4.9,
+      reviews: 7,
     },
     {
       id: 8,
       image:
-        "https://images.priceoye.pk/realme-buds-t110-pakistan-priceoye-w0l3s-270x270.webp",
-      title: "Realme Buds T110",
-      currentPrice: '4,999',
-      originalPrice: '10,500',
-      discountPercentage: 52,
-      rating: 4.8,
-      reviews: 11,
+        "	https://images.priceoye.pk/samsung-galaxy-z-fold-6-pakistan-priceoye-6jsny-270x270.webp",
+      title: "Samsung Galaxy Z Fold 6",
+      currentPrice: '529,999',
+      originalPrice: '604,999',
+      discountPercentage: 12,
+      rating: 5.0,
+      reviews: 1,
     },
     {
       id: 9,
       image:
-        "https://images.priceoye.pk/audionic-airbud-550-pakistan-priceoye-o6fve-270x270.webp",
-      title: "Audionic Airbud 550",
-      currentPrice: '3,811',
-      originalPrice: '9,990',
-      discountPercentage: 62,
-      rating: 4.8,
-      reviews: 537,
+        "https://images.priceoye.pk/infinix-zero-40-4g-pakistan-priceoye-bqj0g-270x270.webp",
+      title: "Infinix Zero 40 4G",
+      currentPrice: '65,499',
+      originalPrice: '69,999',
+      discountPercentage: 6,
+      rating: 4.7,
+      reviews: 10,
     },
     {
       id: 10,
       image:
-        "https://images.priceoye.pk/imilab-imiki-mt2-wireless-erbuds-pakistan-priceoye-obxhu-270x270.webp",
-      title: "Imiki MT2 Wireless Erbuds",
-      currentPrice: '3,899',
-      originalPrice: '6,999',
-      discountPercentage: 44,
-      rating: 4.6,
-      reviews: 14,
-    },
-    {
-      id: 11,
-      image:
-        "https://images.priceoye.pk/airpods-4-active-noise-cancellation-pakistan-priceoye-uz620.jpeg",
-      title: "Apple AirPods 4 Active Noise Cancellation",
-      currentPrice: '56,499',
-      originalPrice: '95,999',
-      discountPercentage: 41,
+        "https://images.priceoye.pk/vivo-v40e-pakistan-priceoye-gylye-270x270.webp",
+      title: "Vivo V40e",
+      currentPrice: '89,999',
+      originalPrice: '99,999',
+      discountPercentage: 10,
       rating: 5.0,
       reviews: 3,
     },
     {
+      id: 11,
+      image:
+        "	https://images.priceoye.pk/apple-iphone-16-pro-pakistan-priceoye-u4pw9-270x270.webp",
+      title: "Apple iPhone 16 Pro",
+      currentPrice: '436,999',
+      originalPrice: '460,000',
+      discountPercentage: 5,
+      rating: 4.4,
+      reviews: 14,
+    },
+    {
       id: 12,
       image:
-        "https://images.priceoye.pk/samsung-galaxy-buds-2-pro-pakistan-priceoye-tp64b-270x270.webp",
-      title: "Samsung Galaxy Buds 2 Pro",
-      currentPrice: '26,599',
-      originalPrice: '39,999',
-      discountPercentage: 34,
-      rating: 4.9,
-      reviews: 110,
+        "	https://images.priceoye.pk/apple-iphone-16-pro-max-pakistan-priceoye-v0q3c-270x270.webp",
+      title: "Apple iPhone 16 Pro Max",
+      currentPrice: '512,999',
+      originalPrice: '540,500',
+      discountPercentage: 5,
+      rating: 5.0,
+      reviews: 1,
     },
   ];
 
@@ -154,17 +154,15 @@ const EarbudGallery = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-earbuds-bg-md.png')`,
+          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-mobiles-bg-md.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-[100%] h-[300px] lg:h-[450px] mb-52"
+        className="w-[100%] h-[300px] lg:h-[450px] mb-52 mt-8"
       >
         <Box className="container mx-auto pt-12 mb:pt-16 pb-7 flex justify-between items-center px-3">
-          <Typography className="text-white">
-            Latest Wireless Earbuds
-          </Typography>
+          <Typography className="text-white">Latest Mobiles</Typography>
           <Button
             className="!text-black !bg-white !hover:text-slate-300 !capitalize"
             variant="contained"
@@ -173,7 +171,7 @@ const EarbudGallery = () => {
           </Button>
         </Box>
         <Swiper
-         slidesPerView='auto'
+          slidesPerView="auto"
           grid={{
             rows: 2,
           }}
@@ -234,4 +232,4 @@ const EarbudGallery = () => {
   );
 };
 
-export default EarbudGallery;
+export default MobileGallery;

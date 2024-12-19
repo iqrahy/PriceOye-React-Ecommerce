@@ -55,7 +55,7 @@ const CategoryBar = () => {
 
   return (
 
-    <Box className="pb-4 bg-slate-100">
+    <Box className="pb-4 bg-slate-100 mt-[90px]">
 
 <Box className="py-2 bg-white">
       <Swiper

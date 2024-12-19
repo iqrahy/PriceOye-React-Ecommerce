@@ -5,6 +5,9 @@ import EarbudGallery from './earbud-gallery/EarbudGallery'
 import ProductWithMedia from './product-with-media/ProductWithMedia'
 import { Box } from '@mui/material'
 import BestSellers from './best-sellers/BestSellers'
+import SmartWatchGallery from './smart-watch-gallery/SmartWatchGallery'
+import MobileGallery from './mobile-gallery/MobileGallery'
+import ShopByOptions from './shop-by-options/ShopByOptions'
 
 const Home = () => {
   return (
@@ -14,6 +17,9 @@ const Home = () => {
       <EarbudGallery/>
       <ProductWithMedia/>
       <BestSellers/>
+      <SmartWatchGallery/>
+      <MobileGallery/>
+      <ShopByOptions/>
     </Box>
   )
 }

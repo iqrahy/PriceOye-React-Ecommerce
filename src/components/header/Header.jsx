@@ -156,7 +156,7 @@ const Header = () => {
     <>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="static"
+          position="fixed"
           className="py-2"
           sx={{ backgroundColor: "#48afff" }}
         >
