@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Tooltip, Typography, Zoom } from "@mui/material";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -21,8 +21,8 @@ const SmartWatchGallery = () => {
       image:
         "	https://images.priceoye.pk/yolo-ultron-smart-watch-pakistan-priceoye-0jv0u-270x270.webp",
       title: "YOLO Ultron Smart Watch",
-      currentPrice: '7,999',
-      originalPrice: '17,999',
+      currentPrice: "7,999",
+      originalPrice: "17,999",
       discountPercentage: 56,
       rating: 4.4,
       reviews: 10,
@@ -32,8 +32,8 @@ const SmartWatchGallery = () => {
       image:
         "https://images.priceoye.pk/huawei-band-9-pakistan-priceoye-9kqv0-270x270.webp",
       title: "HUAWEI Band 9",
-      currentPrice: '9,399',
-      originalPrice: '20,000',
+      currentPrice: "9,399",
+      originalPrice: "20,000",
       discountPercentage: 53,
       rating: 5.0,
       reviews: 9,
@@ -42,8 +42,8 @@ const SmartWatchGallery = () => {
       id: 3,
       image: SamsungGalaxyImage,
       title: "Samsung Galaxy Fit 3 With One Year Brand Warranty",
-      currentPrice: '13,499',
-      originalPrice: '15,999',
+      currentPrice: "13,499",
+      originalPrice: "15,999",
       discountPercentage: 14,
       rating: 5.0,
       reviews: 2,
@@ -53,8 +53,8 @@ const SmartWatchGallery = () => {
       image:
         "	https://images.priceoye.pk/hk9-pro-max-plus-smartwatch-pakistan-priceoye-4n0i7-270x270.webp",
       title: " HK9 PRO Max Plus Smartwatch ",
-      currentPrice: '5,799',
-      originalPrice: '8,000',
+      currentPrice: "5,799",
+      originalPrice: "8,000",
       discountPercentage: 28,
       rating: 4.8,
       reviews: 17,
@@ -64,8 +64,8 @@ const SmartWatchGallery = () => {
       image:
         "	https://images.priceoye.pk/g-tide-r1-smart-watch-pakistan-priceoye-xlubt-270x270.webp",
       title: "G-TiDE R1 Smart Watch ",
-      currentPrice: '4,979',
-      originalPrice: '10,000',
+      currentPrice: "4,979",
+      originalPrice: "10,000",
       discountPercentage: 50,
       rating: 5.0,
       reviews: 26,
@@ -75,8 +75,8 @@ const SmartWatchGallery = () => {
       image:
         "https://images.priceoye.pk/mibro-watch-lite-3-pakistan-priceoye-nq89u-270x270.webp",
       title: "Mibro Watch Lite 3 With Dual Strap ",
-      currentPrice: '11,999',
-      originalPrice: '22,500',
+      currentPrice: "11,999",
+      originalPrice: "22,500",
       discountPercentage: 47,
       rating: 4.7,
       reviews: 7,
@@ -87,8 +87,8 @@ const SmartWatchGallery = () => {
       image:
         "https://images.priceoye.pk/mibro-watch-lite3-pro-pakistan-priceoye-v5v3v-270x270.webp",
       title: "Mibro Watch Lite 3 Pro",
-      currentPrice: '14,799',
-      originalPrice: '18,000',
+      currentPrice: "14,799",
+      originalPrice: "18,000",
       discountPercentage: 18,
       rating: 4.2,
       reviews: 5,
@@ -98,8 +98,8 @@ const SmartWatchGallery = () => {
       image:
         "	https://images.priceoye.pk/xiaomi-redmi-watch-5-active-pakistan-priceoye-n4ewq-270x270.webp",
       title: "Xiaomi Redmi Watch 5 Activ",
-      currentPrice: '8,699',
-      originalPrice: '18,000',
+      currentPrice: "8,699",
+      originalPrice: "18,000",
       discountPercentage: 52,
       rating: 4.3,
       reviews: 3,
@@ -109,8 +109,8 @@ const SmartWatchGallery = () => {
       image:
         "https://images.priceoye.pk/ultra-smart-watch-7-in-1-pakistan-priceoye-3ybh3-270x270.webp",
       title: "Ultra Smart Watch With 7 Straps",
-      currentPrice: '1,679',
-      originalPrice: '8,000',
+      currentPrice: "1,679",
+      originalPrice: "8,000",
       discountPercentage: 79,
       rating: 4.7,
       reviews: 195,
@@ -120,8 +120,8 @@ const SmartWatchGallery = () => {
       image:
         "https://images.priceoye.pk/realme-watch-pakistan-priceoye-g61ky-270x270.webp",
       title: "Realme Smart Watch",
-      currentPrice: '3,499',
-      originalPrice: '14,999',
+      currentPrice: "3,499",
+      originalPrice: "14,999",
       discountPercentage: 77,
       rating: 4.8,
       reviews: 26,
@@ -131,8 +131,8 @@ const SmartWatchGallery = () => {
       image:
         "	https://images.priceoye.pk/y80-ultra-8-in-1-smart-watch-pakistan-priceoye-wuwt7-270x270.webp",
       title: "Y80 Ultra 8 in 1 Smart watch",
-      currentPrice: '1,799',
-      originalPrice: '6,000',
+      currentPrice: "1,799",
+      originalPrice: "6,000",
       discountPercentage: 70,
       rating: 4.4,
       reviews: 14,
@@ -142,8 +142,8 @@ const SmartWatchGallery = () => {
       image:
         "https://images.priceoye.pk/op88-smart-watch-pakistan-priceoye-q11q9-270x270.webp",
       title: "OP88 Smart Watch",
-      currentPrice: '4,799',
-      originalPrice: '8,000',
+      currentPrice: "4,799",
+      originalPrice: "8,000",
       discountPercentage: 40,
       rating: 4.9,
       reviews: 110,
@@ -161,7 +161,7 @@ const SmartWatchGallery = () => {
         }}
         className="w-[100%] h-[300px] lg:h-[450px] mb-52 mt-8"
       >
-        <Box className="container mx-auto pt-12 mb:pt-16 pb-7 flex justify-between items-center px-3">
+        <Box className="container mx-auto pt-12 mb:pt-16 pb-7 flex justify-between items-center !px-3 lg:!px-8">
           <Typography className="text-white">Latest Smart Watches</Typography>
           <Button
             className="!text-black !bg-white !hover:text-slate-300 !capitalize"
@@ -180,7 +180,7 @@ const SmartWatchGallery = () => {
             clickable: true,
           }}
           modules={[Grid, Navigation]}
-          className=" container mx-auto !w-full !h-[580px] "
+          className=" container mx-auto !px-3 lg:!px-5 !w-full !h-[580px] "
         >
           {product.map((item) => (
             <SwiperSlide
@@ -206,7 +206,20 @@ const SmartWatchGallery = () => {
                   </Box>
                 </Box>
                 <Box className="flex flex-col items-start gap-3 mt-4 w-60 text-start pb-4 ">
-                  <Typography className="!text-[15px]">{item.title}</Typography>
+                  <Tooltip
+                    title={item.title}
+                    placement="top"
+                    slots={{
+                      transition: Zoom,
+                    }}
+                  >
+                    <Typography className="!text-[15px]">
+                      {" "}
+                      {item.title.length > 20
+                        ? `${item.title.substring(0, 23)}...`
+                        : item.title}
+                    </Typography>{" "}
+                  </Tooltip>
                   <Typography className="!font-semibold !text-xl lining-nums">
                     <span className="text-sm font-medium relative -top-2">
                       Rs
@@ -230,7 +243,11 @@ const SmartWatchGallery = () => {
       </Box>
 
       <Box className="pt-52 lg:pt-28">
-        <img className="object-cover w-full" src="https://static.priceoye.pk/images/bnpl_banner/static-banner-bnpl-v4.jpg" alt="" />
+        <img
+          className="object-cover w-full"
+          src="https://static.priceoye.pk/images/bnpl_banner/static-banner-bnpl-v4.jpg"
+          alt=""
+        />
       </Box>
     </>
   );

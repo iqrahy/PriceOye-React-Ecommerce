@@ -140,7 +140,7 @@ const ProductWithMedia = () => {
   ];
 
   return (
-    <Box className="!w-full !py-20 mt-80 lg:mt-0">
+    <Box className="!w-full !py-20 mt-96 lg:mt-0">
       <Box className="text-center mb-8">
         <Typography className="!text-xl !font-semibold text-[#3a3b3a]">
           Loved and Recommended
@@ -153,7 +153,7 @@ const ProductWithMedia = () => {
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
-        className="container mx-auto !px-3"
+        className="container mx-auto !px-3 lg:!px-8"
       >
         {product.map((item) => (
           <SwiperSlide

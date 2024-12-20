@@ -8,6 +8,10 @@ import BestSellers from './best-sellers/BestSellers'
 import SmartWatchGallery from './smart-watch-gallery/SmartWatchGallery'
 import MobileGallery from './mobile-gallery/MobileGallery'
 import ShopByOptions from './shop-by-options/ShopByOptions'
+import CustomerReviews from './customer-reviews/CustomerReviews'
+import ReasonToBuy from './reason-to-buy/ReasonToBuy'
+import TrimmerShaverCard from './trimmer-shaver-card/TrimmerShaverCard'
+import Services from './services/Services'
 
 const Home = () => {
   return (
@@ -20,6 +24,10 @@ const Home = () => {
       <SmartWatchGallery/>
       <MobileGallery/>
       <ShopByOptions/>
+      <CustomerReviews/>
+      <ReasonToBuy/>
+      <TrimmerShaverCard/>
+      <Services/>
     </Box>
   )
 }

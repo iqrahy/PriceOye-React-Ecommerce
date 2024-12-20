@@ -12,139 +12,139 @@ import { Grid } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Image1 from "../../../assets/stainless-steel-blade.webp";
+import Image2 from "../../../assets/remington-pilot.webp";
+import Image3 from "../../../assets/kemei.webp";
+import Image4 from "../../../assets/kemei-3-in-1.webp";
+import Image5 from "../../../assets/dinglong.webp";
+import Image6 from "../../../assets/kemei-km.webp";
+import Image7 from "../../../assets/kemei-7-in-1.webp";
+import Image8 from "../../../assets/kemei-hair.webp";
 
-const EarbudGallery = () => {
+const TrimmerShaverCard = () => {
   const product = [
     {
       id: 1,
-      image:
-        "https://images.priceoye.pk/redmi-buds-6-active-wireless-earbuds-pakistan-priceoye-h6kkk-270x270.webp",
-      title: "Redmi Buds 6 Active Wireless Earbuds",
-      currentPrice: "4,549",
-      originalPrice: "7,399",
-      discountPercentage: 39,
-      rating: 5.0,
-      reviews: 17,
+      image: Image1,
+      title: "VGR Stainless Steel Blade Trimmer - V-031",
+      currentPrice: "2,499",
+      originalPrice: "6,000",
+      discountPercentage: 58,
+      rating: 4.7,
+      reviews: 9,
     },
     {
       id: 2,
       image:
-        "https://images.priceoye.pk/realme-t100-wireless-earbuds-pakistan-priceoye-tq6ud-270x270.webp",
-      title: "Realme T100 Wireless Earbuds",
-      currentPrice: "4,999",
-      originalPrice: "7,000",
-      discountPercentage: 29,
-      rating: 54.9,
-      reviews: 38,
+        "https://images.priceoye.pk/vgr-zero-t-blade-trimmer-v-030-pakistan-priceoye-c2lke-270x270.webp",
+      title: "VGR Zero T-Blade Trimmer - V-030",
+      currentPrice: "2,559",
+      originalPrice: "5,500",
+      discountPercentage: 53,
+      rating: 3.7,
+      reviews: 1,
     },
     {
       id: 3,
-      image:
-        "https://images.priceoye.pk/nothing-buds-2-pro-pakistan-priceoye-qouw0-270x270.webp",
-      title: "Nothing Buds Pro 2",
-      currentPrice: "13,499",
-      originalPrice: "20,000",
-      discountPercentage: 33,
-      rating: 4.5,
-      reviews: 5,
+      image: Image2,
+      title: "REMINGTON Pilot Personal Groomer Kit PG180",
+      currentPrice: "5,899",
+      originalPrice: "6,900",
+      discountPercentage: 15,
+      rating: 5.0,
+      reviews: 1,
     },
     {
       id: 4,
-      image:
-        "https://images.priceoye.pk/anker-r50i-earbuds-pakistan-priceoye-csv44-270x270.webp",
-      title: "Anker R50i Earbuds",
-      currentPrice: "4,611",
-      originalPrice: "7,199",
-      discountPercentage: 36,
-      rating: 4.7,
-      reviews: 30,
+      image: Image3,
+      title: "Kemei KM-6331 3 in 1 Grooming Kit with USB Charging",
+      currentPrice: "1,849",
+      originalPrice: "3,000",
+      discountPercentage: 38,
+      rating: 5.0,
+      reviews: 1,
     },
     {
       id: 5,
-      image:
-        "https://images.priceoye.pk/soundpeats-engine4-wireless-earbuds-pakistan-priceoye-40ifu-270x270.webp",
-      title: "Soundpeats Engine4 Wireless Earbuds",
-      currentPrice: "10,518",
-      originalPrice: "14,000",
-      discountPercentage: 25,
-      rating: 4.6,
-      reviews: 13,
+      image: Image4,
+      title: "KEMEI 3 In 1 Rechargeable Electric Shaver & Trimmer KM-6332 ",
+      currentPrice: "1,749",
+      originalPrice: "3,700",
+      discountPercentage: 53,
+      rating: 4.9,
+      reviews: 42,
     },
     {
       id: 6,
-      image:
-        "https://images.priceoye.pk/samsung-galaxy-buds3-pro-pakistan-priceoye-b0lez-270x270.webp",
-      title: "Samsung Galaxy Buds 3 Pro ",
-      currentPrice: "49,799",
-      originalPrice: "69,999",
-      discountPercentage: 29,
-      rating: 4.7,
-      reviews: 7,
+      image: Image5,
+      title: "Dinglong Professional Beard And Hair Trimmer RF-609",
+      currentPrice: "2,399",
+      originalPrice: "4,000",
+      discountPercentage: 40,
+      rating: 4.8,
+      reviews: 37,
     },
 
     {
       id: 7,
       image:
-        "https://images.priceoye.pk/qcy-t13-anc-2-pakistan-priceoye-uvlbc-270x270.webp",
-      title: "QCY T13 ANC 2",
-      currentPrice: "5,499",
-      originalPrice: "6,000",
+        "	https://images.priceoye.pk/mi-5-blade-electric-shaver-pakistan-priceoye-bd88p-270x270.webp",
+      title: "Mi 5-Blade Electric Shaver",
+      currentPrice: "6,299",
+      originalPrice: "15,299",
       discountPercentage: 8,
       rating: 5.0,
       reviews: 1,
     },
     {
       id: 8,
-      image:
-        "https://images.priceoye.pk/realme-buds-t110-pakistan-priceoye-w0l3s-270x270.webp",
-      title: "Realme Buds T110",
-      currentPrice: "4,999",
-      originalPrice: "10,500",
-      discountPercentage: 52,
-      rating: 4.8,
-      reviews: 11,
+      image: Image6,
+      title: "Kemei KM-6330 Hair & Beard Trimmer 3 in 1",
+      currentPrice: "1,799",
+      originalPrice: "3,000",
+      discountPercentage: 40,
+      rating: 4.9,
+      reviews: 22,
     },
     {
       id: 9,
-      image:
-        "https://images.priceoye.pk/audionic-airbud-550-pakistan-priceoye-o6fve-270x270.webp",
-      title: "Audionic Airbud 550",
-      currentPrice: "3,811",
-      originalPrice: "9,990",
+      image: Image7,
+      title: " Kemei 7 in 1 Grooming Kit Shaving Machine Set KM-580",
+      currentPrice: "3,699",
+      originalPrice: "7,000",
       discountPercentage: 62,
-      rating: 4.8,
-      reviews: 537,
+      rating: 4.7,
+      reviews: 2,
     },
     {
       id: 10,
-      image:
-        "https://images.priceoye.pk/imilab-imiki-mt2-wireless-erbuds-pakistan-priceoye-obxhu-270x270.webp",
-      title: "Imiki MT2 Wireless Erbuds",
-      currentPrice: "3,899",
-      originalPrice: "6,999",
-      discountPercentage: 44,
+      image: Image8,
+      title: "Kemei Km-1613 Hair Clippers Men Professional Electric Trimmer",
+      currentPrice: "3,499",
+      originalPrice: "5,900",
+      discountPercentage: 41,
       rating: 4.6,
       reviews: 14,
     },
     {
       id: 11,
       image:
-        "https://images.priceoye.pk/airpods-4-active-noise-cancellation-pakistan-priceoye-uz620.jpeg",
-      title: "Apple AirPods 4 Active Noise Cancellation",
-      currentPrice: "56,499",
-      originalPrice: "95,999",
-      discountPercentage: 41,
-      rating: 5.0,
-      reviews: 3,
+        "	https://images.priceoye.pk/dingling-professional-rf-608b-pakistan-priceoye-47iad-270x270.webp",
+      title: "Dingling Professional Rf 608B",
+      currentPrice: "1,799",
+      originalPrice: "3,500",
+      discountPercentage: 49,
+      rating: 4.7,
+      reviews: 6,
     },
     {
       id: 12,
       image:
-        "https://images.priceoye.pk/samsung-galaxy-buds-2-pro-pakistan-priceoye-tp64b-270x270.webp",
-      title: "Samsung Galaxy Buds 2 Pro",
-      currentPrice: "26,599",
-      originalPrice: "39,999",
-      discountPercentage: 34,
+        "https://images.priceoye.pk/mi-hair-clipper-pakistan-priceoye-nwoxh-270x270.webp",
+      title: "MI HAIR CLIPPER",
+      currentPrice: "8,199",
+      originalPrice: "11,000",
+      discountPercentage: 25,
       rating: 4.9,
       reviews: 110,
     },
@@ -154,17 +154,15 @@ const EarbudGallery = () => {
     <>
       <Box
         sx={{
-          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-earbuds-bg-md.png')`,
+          backgroundImage: `url('https://static.priceoye.pk/images/categories/section-trimmers-shaver-bg-md.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="w-[100%] h-[300px] lg:h-[450px] mb-52"
+        className="w-[100%] h-[300px] lg:h-[450px] mb-52 mt-8"
       >
         <Box className="container mx-auto pt-12 mb:pt-16 pb-7 flex justify-between items-center !px-3 lg:!px-8">
-          <Typography className="text-white">
-            Latest Wireless Earbuds
-          </Typography>
+          <Typography className="text-white">Latest Trimmers Shaver</Typography>
           <Button
             className="!text-black !bg-white !hover:text-slate-300 !capitalize"
             variant="contained"
@@ -222,6 +220,7 @@ const EarbudGallery = () => {
                         : item.title}
                     </Typography>{" "}
                   </Tooltip>
+
                   <Typography className="!font-semibold !text-xl lining-nums">
                     <span className="text-sm font-medium relative -top-2">
                       Rs
@@ -247,4 +246,4 @@ const EarbudGallery = () => {
   );
 };
 
-export default EarbudGallery;
+export default TrimmerShaverCard;

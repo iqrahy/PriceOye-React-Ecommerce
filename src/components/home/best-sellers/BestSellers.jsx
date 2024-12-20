@@ -6,7 +6,7 @@ import React from "react";
 const BestSellers = () => {
 
   return (
-    <Box className="container mx-auto px-3">
+    <Box className="container mx-auto !px-3 lg:!px-8">
       <Box className="text-center mb-8">
         <Typography className="!text-xl !font-semibold text-[#3a3b3a]">
           Best Seller
