@@ -11,40 +11,50 @@ import { toast, ToastContainer } from "react-toastify";
 const SignIn = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const schema = yup.object({
-    email: yup.string().required("Email address is required."),
-    password: yup.string().required("Password is required.").min(8, "Password must be at least 8 characters long"),
+    email: yup
+      .string()
+      .email("Enter a valid email address.")
+      .required("Email address is required."),
+    password: yup
+      .string()
+      .required("Password is required.")
+      .min(8, "Password must be at least 8 characters long."),
   });
 
   const signInDetails = { email: "", password: "" };
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     defaultValues: signInDetails,
     resolver: yupResolver(schema),
   });
 
   const signInHandler = (data) => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const validUser = users.find(
+      (user) => user.email === data.email && user.password === data.password
+    );
 
-    if (storedUser && storedUser.email === data.email && storedUser.password === data.password) {
-      setIsLoggedIn(true); 
-      navigate("/"); 
+    if (validUser) {
       alert("Successfully logged in!");
+      navigate("/");
     } else {
-      alert("Invalid email or password");
+      alert("Invalid email or password.");
     }
-
   };
 
   
   return (
     <>
      
-      <Box className="bg-slate-100 h-[89vh] sm:h-[92vh] md:h-[92vh] lg:h-[95vh] xl:h-[91vh]">
+      <Box className="bg-slate-100 pt-20 h-[100vh] md:h-[63vh] lg:h-[90vh] xl:h-[85vh]">
       <ToastContainer />
         <Box className="flex flex-col w-full justify-center items-center pt-14">
           <Box className="w-96">

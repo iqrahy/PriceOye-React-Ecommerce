@@ -10,6 +10,8 @@ import Error from './components/error/Error';
 import MyAccount from './components/my-account/MyAccount';
 import UpdateProfile from './components/my-account/update-profile/UpdateProfile';
 import ProtectedRoute from './components/protected-component/ProtectedRoute';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
 
 const router = createBrowserRouter([
     {
@@ -44,7 +46,9 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
 );
 
 

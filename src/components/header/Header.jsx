@@ -4,38 +4,25 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faEllipsisVertical,
-  faMicrophone,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faBell,
-  faCircleUser,
-  faEnvelope,
-} from "@fortawesome/free-regular-svg-icons";
+import { faBars, faMicrophone } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { Button, Divider, Menu, Paper, Typography } from "@mui/material";
 import AppMenu from "./AppMenu";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userData = localStorage.getItem("user");
-    const storedUser = userData ? JSON.parse(userData) : null;
-  
-    setIsLoggedIn(!!storedUser);
-  
-    if (storedUser && storedUser.fullName) {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setIsLoggedIn(true);
       setUserName(storedUser.fullName);
     }
   }, []);
@@ -45,23 +32,13 @@ const Header = () => {
   };
 
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
   const handleMenuClose = () => {
     setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
   };
 
   const menuId = "primary-search-account-menu";
@@ -82,7 +59,9 @@ const Header = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem><Link to={'account'}>My account</Link></MenuItem>
+      <MenuItem>
+        <Link to={"account"}>My account</Link>
+      </MenuItem>
       <Divider />
       <MenuItem className="text-xs !important">Track my order</MenuItem>
       <Divider />
@@ -99,55 +78,6 @@ const Header = () => {
         }}
       >
         Logout
-      </MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </Badge>
-        </IconButton>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <FontAwesomeIcon icon={faBell} />
-          </Badge>
-        </IconButton>
-      </MenuItem>
-      <MenuItem onMouseOver={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <FontAwesomeIcon icon={faCircleUser} />
-        </IconButton>
       </MenuItem>
     </Menu>
   );
@@ -171,7 +101,7 @@ const Header = () => {
             </IconButton>
             <Link to={"/"}>
               <img
-                className="w-32 md:w-36"
+                className="w-40"
                 src="https://static.priceoye.pk/images/logo.svg"
                 alt=""
               />
@@ -204,7 +134,7 @@ const Header = () => {
               className="flex items-center"
             >
               {isLoggedIn ? (
-                <Box className='flex items-center gap-2'>
+                <Box className="flex items-center gap-2">
                   <IconButton
                     size="large"
                     edge="end"
@@ -217,8 +147,9 @@ const Header = () => {
                     <FontAwesomeIcon icon={faCircleUser} />
                   </IconButton>
 
-                  {userName && <Typography className="w-20">{userName}</Typography>}
-
+                  {userName && (
+                    <Typography className="w-20">{userName}</Typography>
+                  )}
                 </Box>
               ) : (
                 <Box className="flex gap-2">
@@ -259,23 +190,17 @@ const Header = () => {
                 </Box>
               )}
             </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <FontAwesomeIcon icon={faEllipsisVertical} />
-              </IconButton>
-            </Box>
           </Toolbar>
         </AppBar>
-        {renderMobileMenu}
+
         {renderMenu}
-        <AppMenu open={open} toggleDrawer={toggleDrawer} />
+        <AppMenu
+          open={open}
+          toggleDrawer={toggleDrawer}
+          isLoggedIn={isLoggedIn}
+          navigate={navigate}
+          setIsLoggedIn={setIsLoggedIn}
+        />
       </Box>
     </>
   );

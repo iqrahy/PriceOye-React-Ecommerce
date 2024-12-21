@@ -26,22 +26,18 @@ const SignUp = () => {
       .string()
       .min(3, "Full name must be at least 3 characters long.")
       .required("Full name is required."),
-    email: yup.string().required("Email address is required."),
+    email: yup
+      .string()
+      .email("Enter a valid email address.")
+      .required("Email address is required."),
     password: yup
       .string()
       .required("Password is required.")
-      .min(8, "Password must be 8 characters long.")
-      .matches(/[0-9]/, "Password requires a number.")
-      .matches(/[a-z]/, "Password requires a lowercase letter.")
-      .matches(/[A-Z]/, "Password requires an uppercase letter.")
-      .matches(/[^\w]/, "Password requires a symbol."),
+      .min(8, "Password must be at least 8 characters long."),
   });
 
-  const signUpDetails = {
-    fullName: "",
-    email: "",
-    password: "",
-  };
+  const signUpDetails = { fullName: "", email: "", password: "" };
+
   const {
     control,
     handleSubmit,
@@ -53,15 +49,23 @@ const SignUp = () => {
   });
 
   const signUpHandler = (data) => {
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const isEmailTaken = existingUsers.some((user) => user.email === data.email);
 
-    localStorage.setItem("user", JSON.stringify(data));
-  navigate('/sign-in')
+    if (isEmailTaken) {
+      alert("This email is already registered. Please use a different email.");
+      return;
+    }
+
+    existingUsers.push(data);
+    localStorage.setItem("users", JSON.stringify(existingUsers));
+    alert("Account created successfully!");
+    navigate("/sign-in");
     reset();
-    
   };
 
   return (
-    <Box className="bg-slate-100 h-[89vh] sm:h-[92vh] md:h-[92vh] lg:h-[95vh] xl:h-[91vh]">
+    <Box className="bg-slate-100 pt-20 h-[100vh] md:h-[63vh] lg:h-[90vh] xl:h-[85vh]">
       <Box className="flex flex-col w-full justify-center items-center pt-14">
         <Box className="w-96">
           <img
