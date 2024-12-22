@@ -1,35 +1,39 @@
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AppBar, Box, Button, TextField, Toolbar, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 
 
 const UpdateProfile = () => {
 
+  const [user, setUser] = useState(() => {
+    return JSON.parse(localStorage.getItem("user")) || {
+      name: "",
+      email: "",
+      password: "",
+    };
+  });
 
-    const storedUser = JSON.parse(localStorage.getItem("user")) || {
-        fullName: "",
-        email: "",
-        password: "",
-      };
-    
-      const { control, handleSubmit, reset } = useForm({
-        defaultValues: {
-          fullName: storedUser.fullName,
-          email: storedUser.email,
-        },
-      });
-    
-      const updateProfileHandler = (data) => {
-        const updatedUser = { ...storedUser, ...data }; 
-        localStorage.setItem("user", JSON.stringify(updatedUser)); 
-        reset(); 
-      };
+  // Initialize react-hook-form
+  const { control, handleSubmit, reset } = useForm({
+    defaultValues: {
+      name: user.name,
+      email: user.email,
+    },
+  });
+
+  // Update the user data in localStorage and in state
+  const updateProfileHandler = (data) => {
+    const updatedUser = { ...user, ...data };
+    localStorage.setItem("user", JSON.stringify(updatedUser)); // Update localStorage
+    setUser(updatedUser); // Update local state
+    reset(updatedUser); // Reset form with updated data
+  };
 
   return (
-    <Box className="h-[90vh] bg-slate-100 flex justify-center">
+    <Box className="h-[90vh] bg-slate-100 flex justify-center !pt-6">
     <Box className="w-full mx-3 md:mx-14 lg:w-1/2 mt-20">
       {/* Navbar */}
       <AppBar
@@ -52,7 +56,7 @@ const UpdateProfile = () => {
         <form onSubmit={handleSubmit(updateProfileHandler)}>
           <Box className="my-3">
             <Controller
-              name="fullName"
+              name="name"
               control={control}
               render={({ field }) => (
                 <TextField

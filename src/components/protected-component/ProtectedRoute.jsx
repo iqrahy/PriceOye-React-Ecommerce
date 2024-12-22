@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children }) => {
     return (
       <Box
         sx={{ textAlign: "center", mt: 5 }}
-        className="flex flex-col items-center justify-center gap-2 pt-7 md:pt-16 px-2"
+        className="flex flex-col items-center justify-center gap-2 pt-7 md:pt-16 px-2 h-96"
       >
         <Typography variant="h4">You don't have access to this page</Typography>
         <Typography variant="body1" gutterBottom>

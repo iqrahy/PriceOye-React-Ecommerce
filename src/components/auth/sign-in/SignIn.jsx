@@ -7,42 +7,31 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { setUser } from "../../../slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const SignIn = () => {
+  const dispatch = useDispatch(); // Redux dispatch initialize
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const schema = yup.object({
-    email: yup
-      .string()
-      .email("Enter a valid email address.")
-      .required("Email address is required."),
-    password: yup
-      .string()
-      .required("Password is required.")
-      .min(8, "Password must be at least 8 characters long."),
+    email: yup.string().email("Enter a valid email address.").required("Email address is required."),
+    password: yup.string().required("Password is required.").min(8, "Password must be at least 8 characters long."),
   });
 
-  const signInDetails = { email: "", password: "" };
-
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: signInDetails,
+  const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
 
   const signInHandler = (data) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const validUser = users.find(
-      (user) => user.email === data.email && user.password === data.password
-    );
+    const validUser = users.find((user) => user.email === data.email && user.password === data.password);
 
     if (validUser) {
+      // Store user in Redux
+      dispatch(setUser({ name: validUser.name, email: validUser.email, password: validUser.password }));
       alert("Successfully logged in!");
       navigate("/");
     } else {
@@ -54,7 +43,7 @@ const SignIn = () => {
   return (
     <>
      
-      <Box className="bg-slate-100 pt-20 h-[100vh] md:h-[63vh] lg:h-[90vh] xl:h-[85vh]">
+      <Box className="bg-slate-100 pt-20 h-[100vh]">
       <ToastContainer />
         <Box className="flex flex-col w-full justify-center items-center pt-14">
           <Box className="w-96">

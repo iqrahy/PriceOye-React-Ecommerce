@@ -15,57 +15,41 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../../slices/userSlice";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-  const navigate = useNavigate();
 
   const schema = yup.object({
-    fullName: yup
-      .string()
-      .min(3, "Full name must be at least 3 characters long.")
-      .required("Full name is required."),
-    email: yup
-      .string()
-      .email("Enter a valid email address.")
-      .required("Email address is required."),
-    password: yup
-      .string()
-      .required("Password is required.")
-      .min(8, "Password must be at least 8 characters long."),
+    name: yup.string().min(3, "Name must be at least 3 characters long.").required("Name is required."),
+    email: yup.string().email("Enter a valid email address.").required("Email address is required."),
+    password: yup.string().required("Password is required.").min(8, "Password must be at least 8 characters long."),
   });
 
-  const signUpDetails = { fullName: "", email: "", password: "" };
-
-  const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
-    defaultValues: signUpDetails,
+  const { control, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
 
   const signUpHandler = (data) => {
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const isEmailTaken = existingUsers.some((user) => user.email === data.email);
-
-    if (isEmailTaken) {
-      alert("This email is already registered. Please use a different email.");
-      return;
-    }
-
+   
     existingUsers.push(data);
-    localStorage.setItem("users", JSON.stringify(existingUsers));
+    localStorage.setItem("users", JSON.stringify(existingUsers)); // Store user in localStorage
+    
+    // Dispatch to Redux store
+    dispatch(setUser({ name: data.name, email: data.email, password: data.password }));
     alert("Account created successfully!");
     navigate("/sign-in");
     reset();
   };
 
+
   return (
-    <Box className="bg-slate-100 pt-20 h-[100vh] md:h-[63vh] lg:h-[90vh] xl:h-[85vh]">
+    <Box className="bg-slate-100 pt-20 h-[100vh]">
       <Box className="flex flex-col w-full justify-center items-center pt-14">
         <Box className="w-96">
           <img
@@ -86,7 +70,7 @@ const SignUp = () => {
               <Box>
                 <Box className="my-3">
                   <Controller
-                    name="fullName"
+                    name="name"
                     control={control}
                     render={({ field }) => (
                       <TextField

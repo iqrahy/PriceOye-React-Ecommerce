@@ -11,27 +11,57 @@ import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { Button, Divider, Menu, Paper, Typography } from "@mui/material";
 import AppMenu from "./AppMenu";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../slices/userSlice";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [userName, setUserName] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
-      setIsLoggedIn(true);
-      setUserName(storedUser.fullName);
-    }
-  }, []);
+  const user = useSelector((state) => state.user); // Redux store se user ka data le rahe hain
+  const isLoggedIn = !!user.email || !!localStorage.getItem("user");
+  const userName = user.name || (JSON.parse(localStorage.getItem("user"))?.name);
 
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
+  const handleLogout = () => {
+    // Logout karte waqt Redux action ko dispatch karna
+    dispatch(logout());
   };
 
-  const isMenuOpen = Boolean(anchorEl);
+  // const handleLogout = () => {
+  //   // Logout karte waqt Redux action ko dispatch karna
+  //   dispatch(logout());
+  // };
+
+  // useEffect(() => {
+  //   const fetchUser = () => {
+  //     const storedUser = localStorage.getItem("user");
+  //     if (storedUser) {
+  //       try {
+  //         const parsedUser = JSON.parse(storedUser);
+  //         if (parsedUser && parsedUser.fullName) {
+  //           setIsLoggedIn(true);
+  //           setUserName(parsedUser.fullName);
+  //         }
+  //       } catch (error) {
+  //         console.error("Error parsing user data from localStorage:", error);
+  //         setIsLoggedIn(false);
+  //       }
+  //     } else {
+  //       setIsLoggedIn(false);
+  //     }
+  //   };
+  //   fetchUser();
+  // }, []);
+
+  // const handleLogout = () => {
+  //   localStorage.removeItem("user");
+  //   setIsLoggedIn(false);
+  //   navigate("/");
+  // };
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -41,10 +71,13 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  const toggleDrawer = (newOpen) => () => {
+    setAnchorEl(newOpen ? null : anchorEl);
+  };
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
-      className="mt-10 p-10"
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "top",
@@ -56,29 +89,20 @@ const Header = () => {
         vertical: "top",
         horizontal: "right",
       }}
-      open={isMenuOpen}
+      open={Boolean(anchorEl)}
       onClose={handleMenuClose}
     >
       <MenuItem>
         <Link to={"account"}>My account</Link>
       </MenuItem>
       <Divider />
-      <MenuItem className="text-xs !important">Track my order</MenuItem>
+      <MenuItem>Track my order</MenuItem>
       <Divider />
-      <MenuItem className="text-xs">Launch a complaint</MenuItem>
+      <MenuItem>Launch a complaint</MenuItem>
       <Divider />
-      <MenuItem className="text-xs">Notifications</MenuItem>
+      <MenuItem>Notifications</MenuItem>
       <Divider />
-      <MenuItem
-        className="text-xs"
-        onClick={() => {
-          localStorage.removeItem("user");
-          setIsLoggedIn(false);
-          navigate("/");
-        }}
-      >
-        Logout
-      </MenuItem>
+      <MenuItem onClick={handleLogout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -146,7 +170,6 @@ const Header = () => {
                   >
                     <FontAwesomeIcon icon={faCircleUser} />
                   </IconButton>
-
                   {userName && (
                     <Typography className="w-20">{userName}</Typography>
                   )}
@@ -169,8 +192,9 @@ const Header = () => {
                       paddingX: 2,
                       paddingY: 1,
                     }}
+                    onClick={() => navigate("sign-in")}
                   >
-                    <Link to={"sign-in"}>Log in</Link>
+                    Log in
                   </Button>
                   <Button
                     className="w-28 h-10"
@@ -184,8 +208,9 @@ const Header = () => {
                       paddingX: 2,
                       paddingY: 1,
                     }}
+                    onClick={() => navigate("sign-up")}
                   >
-                    <Link to={"sign-up"}>Register</Link>
+                    Register
                   </Button>
                 </Box>
               )}
@@ -199,7 +224,7 @@ const Header = () => {
           toggleDrawer={toggleDrawer}
           isLoggedIn={isLoggedIn}
           navigate={navigate}
-          setIsLoggedIn={setIsLoggedIn}
+          // setIsLoggedIn={setIsLoggedIn}
         />
       </Box>
     </>
