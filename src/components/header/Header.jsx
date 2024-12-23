@@ -36,32 +36,36 @@ const Header = () => {
     setAnchorEl(null);
   };
 
-  const toggleDrawer = (newOpen) => () => {
-    setAnchorEl(newOpen ? null : anchorEl);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
   };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
       id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={Boolean(anchorEl)}
       onClose={handleMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick={handleMenuClose}>
         <Link to={"account"}>My account</Link>
       </MenuItem>
       <Divider />
-      <MenuItem>Track my order</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Track my order</MenuItem>
       <Divider />
-      <MenuItem>Launch a complaint</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Launch a complaint</MenuItem>
       <Divider />
-      <MenuItem>Notifications</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Notifications</MenuItem>
       <Divider />
-      <MenuItem onClick={handleLogout}>Logout</MenuItem>
+      <MenuItem
+        onClick={() => {
+          handleLogout();
+          handleMenuClose();
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -98,11 +102,7 @@ const Header = () => {
                 placeholder="Search..."
                 inputProps={{ "aria-label": "search" }}
               />
-              <IconButton
-                type="button"
-                sx={{ p: "10px" }}
-                aria-label="search"
-              >
+              <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
                 <FontAwesomeIcon
                   className="text-[#48afff]"
                   icon={faMicrophone}
@@ -185,6 +185,7 @@ const Header = () => {
         toggleDrawer={toggleDrawer}
         isLoggedIn={isLoggedIn}
         navigate={navigate}
+        handleLogout={handleLogout}
       />
     </Box>
   );

@@ -24,17 +24,35 @@ const SignIn = () => {
   });
 
   const signInHandler = (data) => {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    const validUser = users.find((user) => user.email === data.email && user.password === data.password);
-
-    if (validUser) {
-      dispatch(setUser({ name: validUser.name, email: validUser.email }));
-      alert("Successfully logged in!");
-      navigate("/");
-    } else {
-      alert("Invalid email or password.");
+    // Fetch the user data from localStorage
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+  
+    // Check if a user exists in localStorage
+    if (!storedUser) {
+      alert("No user found. Please sign up first.");
+      return;
     }
+  
+    // Check if the email matches
+    if (storedUser.email !== data.email) {
+      alert("Invalid email address.");
+      return;
+    }
+  
+    // Check if the password matches
+    if (storedUser.password !== data.password) {
+      alert("Incorrect password. Please try again.");
+      return;
+    }
+  
+    // If both email and password are correct, dispatch user data to Redux
+    dispatch(setUser({ name: storedUser.name, email: storedUser.email, password: storedUser.password }));
+    
+    alert("Successfully logged in!");
+    navigate("/"); 
   };
+
+  
 
   return (
     <Box className="bg-slate-100 pt-20 h-[100vh] flex justify-center items-center">

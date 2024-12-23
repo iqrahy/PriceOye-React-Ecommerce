@@ -12,6 +12,7 @@ import UpdateProfile from './components/my-account/update-profile/UpdateProfile'
 import ProtectedRoute from './components/protected-component/ProtectedRoute';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import ProductDetails from './components/product-details/ProductDetails';
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
           {
             path: "account/profile",
             element: <ProtectedRoute><UpdateProfile/></ProtectedRoute> 
+          },
+          {
+            path:"product/:productName",
+            element:<ProductDetails/>
           }
     
       ],

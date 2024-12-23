@@ -27,7 +27,7 @@ import { Link } from "react-router-dom";
 import { faBell, faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const AppMenu = (props) => {
-  const { toggleDrawer, open, isLoggedIn, navigate, setIsLoggedIn } = props;
+  const { toggleDrawer, open, isLoggedIn, navigate, setIsLoggedIn, handleLogout } = props;
 
   const list = [
     {
@@ -145,11 +145,7 @@ const AppMenu = (props) => {
                   />
                   <MenuItem
                     className="text-xs"
-                    onClick={() => {
-                      localStorage.removeItem("user");
-                      setIsLoggedIn(false);
-                      navigate("/");
-                    }}
+                    onClick={handleLogout}
                   >
                     Logout
                   </MenuItem>
