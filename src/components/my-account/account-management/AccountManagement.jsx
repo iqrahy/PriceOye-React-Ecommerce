@@ -1,9 +1,3 @@
-import {
-  faCommentDots,
-  faCreditCard,
-} from "@fortawesome/free-regular-svg-icons";
-import { faTruck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -14,7 +8,7 @@ const AccountManagement = () => {
       {/* Top boxes */}
       <Box className="md:flex md:items-center">
         <Box className=" bg-white md:w-1/2 m-5 p-7">
-          <Typography sx={{ fontSize: "18px", paddingBottom: "25px" }}>
+          <Typography className="!text-lg pb-8">
             My orders
           </Typography>
           <Box className="flex items-center justify-between flex-wrap gap-10 md:gap-14 lg:gap-5">
@@ -81,7 +75,7 @@ const AccountManagement = () => {
         </Box>
 
         <Box className=" bg-white md:w-1/2 m-5 p-7">
-          <Typography sx={{ fontSize: "18px", paddingBottom: "25px" }}>
+          <Typography className="!text-lg pb-8" >
             Help
           </Typography>
           <Box className="flex items-center lg:justify-between justify-start flex-wrap gap-10 md:gap-14 lg:gap-5">
@@ -140,7 +134,7 @@ const AccountManagement = () => {
 
       <Box className=" bg-white mx-5 p-7">
         <Box className="container mx-auto">
-          <Typography sx={{ fontSize: "18px", paddingBottom: "25px" }}>
+          <Typography className="!text-lg pb-8" >
             Services
           </Typography>
           <Box className="flex items-center justify-between flex-wrap gap-10 md:gap-14 lg:gap-5">
@@ -179,7 +173,7 @@ const AccountManagement = () => {
 
       <Box className=" bg-white m-5 p-7">
         <Box className="container mx-auto">
-          <Typography sx={{ fontSize: "18px", paddingBottom: "25px" }}>
+          <Typography className="!text-lg pb-8" >
             Profile
           </Typography>
           <Box className="flex items-center justify-between flex-wrap gap-10 md:gap-14 lg:gap-5 md:w-[52%]">

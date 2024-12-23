@@ -30,8 +30,12 @@ const userSlice = createSlice({
       // LocalStorage se user data delete karenge
       localStorage.removeItem('user');
     },
+    updateUserName: (state, action) => {
+      state.name = action.payload.name;
+      state.email = action.payload.email;
+    },
   },
 });
 
-export const { setUser, logout } = userSlice.actions;
+export const { setUser, logout, updateUserName } = userSlice.actions;
 export default userSlice.reducer;

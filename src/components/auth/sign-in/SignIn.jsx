@@ -6,15 +6,13 @@ import { Box, Button, IconButton, InputAdornment, OutlinedInput, TextField, Typo
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 import { setUser } from "../../../slices/userSlice";
 import { useDispatch } from "react-redux";
 
 const SignIn = () => {
-  const dispatch = useDispatch(); // Redux dispatch initialize
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const schema = yup.object({
     email: yup.string().email("Enter a valid email address.").required("Email address is required."),
@@ -30,8 +28,7 @@ const SignIn = () => {
     const validUser = users.find((user) => user.email === data.email && user.password === data.password);
 
     if (validUser) {
-      // Store user in Redux
-      dispatch(setUser({ name: validUser.name, email: validUser.email, password: validUser.password }));
+      dispatch(setUser({ name: validUser.name, email: validUser.email }));
       alert("Successfully logged in!");
       navigate("/");
     } else {
@@ -39,109 +36,64 @@ const SignIn = () => {
     }
   };
 
-  
   return (
-    <>
-     
-      <Box className="bg-slate-100 pt-20 h-[100vh]">
-      <ToastContainer />
-        <Box className="flex flex-col w-full justify-center items-center pt-14">
-          <Box className="w-96">
-            <img
-              src="https://static.priceoye.pk/images/login-header-img.svg"
-              alt=""
+    <Box className="bg-slate-100 pt-20 h-[100vh] flex justify-center items-center">
+      <Box className="w-96 bg-white p-5 rounded shadow">
+        <Typography variant="h5" className="text-center mb-4">Sign In</Typography>
+        <form onSubmit={handleSubmit(signInHandler)}>
+          <Box className="my-3">
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  size="small"
+                  fullWidth
+                  type="email"
+                  variant="outlined"
+                  placeholder="Email"
+                  {...field}
+                />
+              )}
             />
+            <Typography color="error">{errors?.email?.message}</Typography>
           </Box>
-          <Box>
-            <Box className="w-96 bg-white p-5">
-              <Typography variant="h5" className="text-center text-base">
-                Sign In
-              </Typography>
-              <Box className="text-center mt-2 mb-5 text-sm">
-                <Typography>
-                Enter your details to sign in to your account.
-                </Typography>
-              </Box>
 
-              <form onSubmit={handleSubmit(signInHandler)}>
-                <Box>
-                  <Box className="my-3">
-                    <Controller
-                      name="email"
-                      control={control}
-                      render={({ field }) => (
-                        <TextField
-                          size="small"
-                          fullWidth
-                          type="email"
-                          id="outlined-basic"
-                          variant="outlined"
-                          placeholder="Email"
-                          {...field}
-                        />
-                      )}
-                    />
-                    <Typography color="error">
-                      {errors?.email?.message}
-                    </Typography>
-                  </Box>
-                  <Box className="my-3">
-                    <Controller
-                      name="password"
-                      control={control}
-                      render={({ field }) => (
-                        <OutlinedInput
-                          size="small"
-                          id="outlined-adornment-password"
-                          variant="outlined"
-                          placeholder="Password"
-                          fullWidth
-                          type={showPassword ? "text" : "password"}
-                          endAdornment={
-                            <InputAdornment position="end">
-                              <IconButton
-                                aria-label={
-                                  showPassword
-                                    ? "hide the password"
-                                    : "display the password"
-                                }
-                                onClick={handleClickShowPassword}
-                                edge="end"
-                              >
-                                {showPassword ? (
-                                  <FontAwesomeIcon icon={faEyeSlash} />
-                                ) : (
-                                  <FontAwesomeIcon icon={faEye} />
-                                )}
-                              </IconButton>
-                            </InputAdornment>
-                          }
-                          {...field}
-                        />
-                      )}
-                    />
-                    <Typography color="error">
-                      {errors?.password?.message}
-                    </Typography>
-                  </Box>
-                  <Box className="my-3">
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      className="text-capitalize"
-                      fullWidth
-                      sx={{ backgroundColor: "#48afff", textTransform: "none" }}
-                    >
-                      Sign in
-                    </Button>
-                  </Box>
-                </Box>
-              </form>
-            </Box>
+          <Box className="my-3">
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <OutlinedInput
+                  size="small"
+                  fullWidth
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton onClick={() => setShowPassword((prev) => !prev)} edge="end">
+                        <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  {...field}
+                />
+              )}
+            />
+            <Typography color="error">{errors?.password?.message}</Typography>
           </Box>
-        </Box>
+
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            className="!bg-[#48afff] !capitalize"
+          >
+            Sign In
+          </Button>
+        </form>
       </Box>
-    </>
+    </Box>
   );
 };
 

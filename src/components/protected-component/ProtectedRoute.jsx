@@ -9,8 +9,8 @@ const ProtectedRoute = ({ children }) => {
   if (!isLoggedIn) {
     return (
       <Box
-        sx={{ textAlign: "center", mt: 5 }}
-        className="flex flex-col items-center justify-center gap-2 pt-7 md:pt-16 px-2 h-96"
+       
+        className="flex flex-col items-center justify-center gap-2 pt-7 md:pt-16 px-2 h-96 !text-center !mt-3"
       >
         <Typography variant="h4">You don't have access to this page</Typography>
         <Typography variant="body1" gutterBottom>
@@ -18,8 +18,7 @@ const ProtectedRoute = ({ children }) => {
         </Typography>
         <Button
           variant="contained"
-          sx={{ backgroundColor: "#48AFFF" }}
-          className="!capitalize"
+          className="!capitalize !bg-[#48AFFF]"
           onClick={() => navigate("/sign-in")}
         >
           Continue to Login

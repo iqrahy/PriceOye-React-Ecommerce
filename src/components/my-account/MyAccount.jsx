@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, IconButton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import AccountManagement from "./account-management/AccountManagement";
-import { Outlet } from "react-router-dom";
 
 const MyAccount = () => {
   const [userName, setUserName] = useState("");
@@ -16,7 +15,7 @@ const MyAccount = () => {
   }, []);
 
   return (
-    <Box className="bg-slate-100 pt-7 pb-5">
+    <Box className="bg-slate-100 pt-28 pb-5">
       <Box className="bg-[#48AFFF] flex justify-between px-5 relative py-5">
         {/* left side */}
 
