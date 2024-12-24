@@ -8,7 +8,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,6 @@ const UpdateProfile = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
-  // Initialize react-hook-form
   const { control, handleSubmit, reset } = useForm({
     defaultValues: {
       name: localStorageUser.name || user.name || "",
@@ -33,6 +32,10 @@ const UpdateProfile = () => {
     dispatch(updateUserName(updatedUser));
     reset(updatedUser);
   };
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <Box className=" bg-slate-100 flex justify-center pt-10 md:pt-[100px] md:pb-60 pb-14 lg:pb-40">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CategoryBar from './category-bar/CategoryBar'
 import HeroSection from './hero-section/HeroSection'
 import EarbudGallery from './earbud-gallery/EarbudGallery'
@@ -14,6 +14,11 @@ import TrimmerShaverCard from './trimmer-shaver-card/TrimmerShaverCard'
 import Services from './services/Services'
 
 const Home = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Box className="!bg-slate-100">
       <CategoryBar/>

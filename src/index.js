@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import ProductDetails from './components/product-details/ProductDetails';
 
+
 const router = createBrowserRouter([
     {
       path: "/",

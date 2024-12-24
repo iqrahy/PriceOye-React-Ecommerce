@@ -1,10 +1,14 @@
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const isLoggedIn = localStorage.getItem("user");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!isLoggedIn) {
     return (

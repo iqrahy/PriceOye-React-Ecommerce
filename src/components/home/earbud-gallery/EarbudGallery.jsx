@@ -8,7 +8,7 @@ import { Grid } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import ProductData from '../../data/product.json'
+import ProductData from "../../data/product.json";
 import { useNavigate } from "react-router-dom";
 
 const EarbudGallery = () => {
@@ -96,17 +96,24 @@ const EarbudGallery = () => {
                         : item.name}
                     </Typography>{" "}
                   </Tooltip>
-                  <Typography className="!font-semibold !text-xl lining-nums">
-                    <span className="text-sm font-medium relative -top-2">
+                  <Box className="flex gap-1">
+                    <Typography className="!text-sm !font-medium !relative -!top-2">
                       Rs
-                    </span>{" "}
-                    {item.current_price}
-                  </Typography>
-                  <Box className="flex justify-between items-center w-full pb-2">
-                    <Typography className="!text-sm lining-nums line-through decoration-red-500 text-slate-400">
-                      <span className="text-xs relative -top-2">Rs</span>{" "}
-                      {item.original_price}
                     </Typography>
+                    <Typography className="!font-semibold !text-xl !lining-nums">
+                      {item.current_price}
+                    </Typography>
+                  </Box>
+
+                  <Box className="flex justify-between items-center w-full pb-2">
+                    <Box className="flex gap-1 !line-through decoration-red-500 text-slate-400">
+                      <Typography className="!text-xs !font-medium !relative -!top-2">
+                        Rs
+                      </Typography>
+                      <Typography className="!font-medium !text-sm !lining-nums">
+                        {item.original_price}
+                      </Typography>
+                    </Box>
                     <Typography className="!font-normal !text-xs text-[#1EB688] bg-[#F0FAF7] rounded-full px-1">
                       {item.discount}% OFF
                     </Typography>

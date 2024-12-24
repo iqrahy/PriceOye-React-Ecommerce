@@ -14,6 +14,11 @@ const MyAccount = () => {
     }
   }, []);
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+    
+
   return (
     <Box className="bg-slate-100 pt-28 pb-5">
       <Box className="bg-[#48AFFF] flex justify-between px-5 relative py-5">

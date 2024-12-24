@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -49,9 +49,7 @@ const SignUp = () => {
   });
 
   const signUpHandler = (data) => {
-    // Simply dispatch the new user data to Redux (No need to check 'users' from localStorage)
     
-    // Check if the user already exists in the localStorage
     const existingUser = JSON.parse(localStorage.getItem("user"));
   
     if (existingUser && (existingUser.email === data.email || existingUser.password === data.password)) {
@@ -63,10 +61,9 @@ const SignUp = () => {
       return;
     }
   
-    // Set the user data in localStorage under the 'user' key
     localStorage.setItem("user", JSON.stringify(data));
   
-    // Dispatch the user data to Redux
+ 
     dispatch(setUser({ name: data.name, email: data.email, password: data.password }));
   
     alert("Account created successfully!");
@@ -74,6 +71,10 @@ const SignUp = () => {
     reset();
   };
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
 
   return (

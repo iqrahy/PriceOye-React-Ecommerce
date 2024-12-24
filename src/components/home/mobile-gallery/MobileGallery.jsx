@@ -222,14 +222,14 @@ const MobileGallery = () => {
                     </Typography>{" "}
                   </Tooltip>
                   <Typography className="!font-semibold !text-xl lining-nums">
-                    <span className="text-sm font-medium relative -top-2">
+                    <Typography className="text-sm font-medium relative -top-2">
                       Rs
-                    </span>{" "}
+                    </Typography>{" "}
                     {item.currentPrice}
                   </Typography>
                   <Box className="flex justify-between items-center w-full pb-2">
                     <Typography className="!text-sm lining-nums line-through decoration-red-500 text-slate-400">
-                      <span className="text-xs relative -top-2">Rs</span>{" "}
+                      <Typography className="text-xs relative -top-2">Rs</Typography>{" "}
                       {item.originalPrice}
                     </Typography>
                     <Typography className="!font-normal !text-xs text-[#1EB688] bg-[#F0FAF7] rounded-full px-1">
