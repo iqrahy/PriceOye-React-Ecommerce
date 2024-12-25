@@ -12,6 +12,7 @@ import CustomerReviews from './customer-reviews/CustomerReviews'
 import ReasonToBuy from './reason-to-buy/ReasonToBuy'
 import TrimmerShaverCard from './trimmer-shaver-card/TrimmerShaverCard'
 import Services from './services/Services'
+import Footer from '../footer/Footer'
 
 const Home = () => {
 
@@ -33,6 +34,8 @@ const Home = () => {
       <ReasonToBuy/>
       <TrimmerShaverCard/>
       <Services/>
+      <Footer/>
+
     </Box>
   )
 }

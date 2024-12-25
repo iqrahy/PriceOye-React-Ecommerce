@@ -13,6 +13,7 @@ import ProtectedRoute from './components/protected-component/ProtectedRoute';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import ProductDetails from './components/product-details/ProductDetails';
+import CheckoutForm from './components/checkout-form/CheckoutForm';
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
           {
             path:"product/:productName",
             element:<ProductDetails/>
+          },
+          {
+            path:'checkout',
+            element: <ProtectedRoute> <CheckoutForm/> </ProtectedRoute>  
           }
     
       ],

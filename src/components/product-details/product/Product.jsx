@@ -5,13 +5,19 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { FreeMode, Thumbs } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const Product = (props) => {
   const { product } = props;
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const navigate = useNavigate();
+
+  const handleAddToCartClick = () => {
+    navigate("/checkout");
+  };
 
   return (
     <Box className="pt-24 pb-4">
@@ -119,7 +125,13 @@ const Product = (props) => {
 
           {/* Add cart button */}
           <Box>
-            <Button variant="contained" className="!capitalize !mt-10 !bg-[#F88B2A] w-56">Add to Cart</Button>
+            <Button
+              variant="contained"
+              onClick={handleAddToCartClick}
+              className="!capitalize !mt-10 !bg-[#F88B2A] w-56"
+            >
+              Add to Cart
+            </Button>
           </Box>
         </Box>
       </Box>

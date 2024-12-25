@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Audionic Airbud 550",
+    "slug": "audionic-airbud-550",
     "image": "https://images.priceoye.pk/audionic-airbud-550-pakistan-priceoye-mkxlj.jpg",
     "current_price": "4,549",
     "original_price": "7,399",
@@ -81,6 +82,7 @@
   {
     "id": 2,
     "name": "Anker R50i Earbuds",
+    "slug": "anker-r50i-earbuds",
     "image": "https://images.priceoye.pk/anker-r50i-earbuds-pakistan-priceoye-csv44-270x270.webp",
     "current_price": "4,611",
     "original_price": "7,199",
@@ -153,6 +155,7 @@
   {
     "id": 3,
     "name": "Samsung Galaxy Buds 3 Pro",
+    "slug": "samsung-galaxy-buds-3-pro",
     "image": "https://images.priceoye.pk/samsung-galaxy-buds3-pro-pakistan-priceoye-b0lez-270x270.webp",
     "current_price": "48,999",
     "original_price": "69,999",
@@ -197,12 +200,35 @@
     ],
     "highlights_images": [
       "https://images.priceoye.pk/media/samsung-galaxy-buds3-pro/samsung-galaxy-buds3-pro-d7fvn.png"
+    ],
+    "questions_answers": [
+      {
+        "question": "Agar koi issue hou tou return ho jae ga",
+        "answer": "We provide genuine and sealed-packed products with an official brand warranty if it is mentioned by the brand itself. We also provide a 3-day check warranty, for further information please visit our website at : https://priceoye.pk/return-policy"
+      },
+      {
+        "question": "It s no warranty in 1Year",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk or visit its official website."
+      },
+      {
+        "question": " Is this buds app work in pakistan",
+        "answer": "Thank you for reaching out to us. Please stay tuned to our website and social media to check for the availability of the requested stock."
+      },
+      {
+        "question": "Is this product is original If this is original then why these buds price is low then the others website",
+        "answer": "Priceoye provides it's customer's with the best available prices at an affordable rates with genuine and branded products only."
+      },
+      {
+        "question": "Kab tk available honge",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk"
+      }
     ]
   },
 
   {
     "id": 4,
     "name": "Apple AirPods 4 Active Noise Cancellation",
+    "slug": "apple-airPods-4-active-noise-cancellation",
     "image": "https://images.priceoye.pk/airpods-4-active-noise-cancellation-pakistan-priceoye-uz620-270x270.webp",
     "current_price": "55,999",
     "original_price": "95,999",
@@ -243,30 +269,102 @@
     ],
     "highlights_images": [
       "https://priceoye-images.s3-accelerate.amazonaws.com/media/Soundcore Life P3 Noise Cancelling Earbuds/screencapture-xcessorieshub-product-anker-soundcore-liberty-4-wireless-earbuds-with-noise-cancellaltion-28-hours-playtime-spatial-audio-2024-05-29-16_19_57.png"
+    ],
+    "questions_answers": [
+      {
+        "question": "Agar koi issue hou tou return ho jae ga",
+        "answer": "We provide genuine and sealed-packed products with an official brand warranty if it is mentioned by the brand itself. We also provide a 3-day check warranty, for further information please visit our website at : https://priceoye.pk/return-policy"
+      },
+      {
+        "question": "It s no warranty in 1Year",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk or visit its official website."
+      },
+      {
+        "question": " Is this buds app work in pakistan",
+        "answer": "Thank you for reaching out to us. Please stay tuned to our website and social media to check for the availability of the requested stock."
+      },
+      {
+        "question": "Is this product is original If this is original then why these buds price is low then the others website",
+        "answer": "Priceoye provides it's customer's with the best available prices at an affordable rates with genuine and branded products only."
+      },
+      {
+        "question": "Kab tk available honge",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk"
+      }
     ]
   },
 
   {
     "id": 5,
     "name": "Imiki MT2 Wireless Erbuds",
+    "slug": "imiki-mT2-wireless-erbuds",
     "image": "https://images.priceoye.pk/imilab-imiki-mt2-wireless-erbuds-pakistan-priceoye-obxhu-270x270.webp",
     "current_price": "3,899",
     "original_price": "6,999",
     "discount": 44,
     "rating": 4.7,
     "reviews_count": 7,
+    "reviews": [
+      {
+        "review_images": [
+          "https://images.priceoye.pk/review/9389/1511159-bzml4-94x94.jpeg"
+        ],
+        "description": "Nice",
+        "reviewer_short_name": "WM",
+        "reviewer_full_name": "Waheed Murad"
+      },
+      {
+        "review_images": [
+          "https://images.priceoye.pk/review/9389/1405508-vhcbu-94x94.jpeg"
+        ],
+        "description": "Original product. Delivered timely. Lowest price in market.",
+        "reviewer_short_name": "AI",
+        "reviewer_full_name": "Afnan Iqbal"
+      },
+      {
+        "review_images": [
+          "https://images.priceoye.pk/review/9389/1463388-iq52q-94x94.jpg"
+        ],
+        "description": "Original brand new product ",
+        "reviewer_short_name": "SS",
+        "reviewer_full_name": "Saad Saleh"
+      }
+    ],
     "images": [
       "https://images.priceoye.pk/imilab-imiki-mt2-wireless-erbuds-pakistan-priceoye-u7nni.jpg",
       "https://images.priceoye.pk/imilab-imiki-mt2-wireless-erbuds-pakistan-priceoye-9ruh2.jpg"
     ],
     "highlights_images": [
       "https://images.priceoye.pk/media/imilab-imiki-mt2-wireless-erbuds/imilab-imiki-mt2-wireless-erbuds-wpop4.png"
+    ],
+    "questions_answers": [
+      {
+        "question": "Agar koi issue hou tou return ho jae ga",
+        "answer": "We provide genuine and sealed-packed products with an official brand warranty if it is mentioned by the brand itself. We also provide a 3-day check warranty, for further information please visit our website at : https://priceoye.pk/return-policy"
+      },
+      {
+        "question": "It s no warranty in 1Year",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk or visit its official website."
+      },
+      {
+        "question": " Is this buds app work in pakistan",
+        "answer": "Thank you for reaching out to us. Please stay tuned to our website and social media to check for the availability of the requested stock."
+      },
+      {
+        "question": "Is this product is original If this is original then why these buds price is low then the others website",
+        "answer": "Priceoye provides it's customer's with the best available prices at an affordable rates with genuine and branded products only."
+      },
+      {
+        "question": "Kab tk available honge",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk"
+      }
     ]
   },
 
   {
     "id": 6,
     "name": "Xiaomi Redmi Buds 6 Lite",
+    "slug": "xiaomi-redmi-buds-6-lite",
     "image": "https://images.priceoye.pk/xiaomi-redmi-buds-6-lite-wireless-earbuds-pakistan-priceoye-6t6de.jpg",
     "current_price": "5,899",
     "original_price": "6,999",
@@ -312,12 +410,35 @@
     ],
     "highlights_images": [
       "https://images.priceoye.pk/media/xiaomi-redmi-buds-6-lite-wireless-earbuds/xiaomi-redmi-buds-6-lite-wireless-earbuds-vu3bc.png"
+    ],
+    "questions_answers": [
+      {
+        "question": "Agar koi issue hou tou return ho jae ga",
+        "answer": "We provide genuine and sealed-packed products with an official brand warranty if it is mentioned by the brand itself. We also provide a 3-day check warranty, for further information please visit our website at : https://priceoye.pk/return-policy"
+      },
+      {
+        "question": "It s no warranty in 1Year",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk or visit its official website."
+      },
+      {
+        "question": " Is this buds app work in pakistan",
+        "answer": "Thank you for reaching out to us. Please stay tuned to our website and social media to check for the availability of the requested stock."
+      },
+      {
+        "question": "Is this product is original If this is original then why these buds price is low then the others website",
+        "answer": "Priceoye provides it's customer's with the best available prices at an affordable rates with genuine and branded products only."
+      },
+      {
+        "question": "Kab tk available honge",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk"
+      }
     ]
   },
 
   {
     "id": 7,
     "name": "Realme T100 Wireless Earbuds",
+    "slug": "realme-t100-wireless-earbuds",
     "image": "https://images.priceoye.pk/realme-t100-wireless-earbuds-pakistan-priceoye-tq6ud-270x270.webp",
     "current_price": "4,999",
     "original_price": "7,000",
@@ -374,6 +495,7 @@
   {
     "id": 8,
     "name": "QCY T13 ANC 2",
+    "slug": "qcy-t13-anc-2",
     "image": "https://images.priceoye.pk/qcy-t13-anc-2-pakistan-priceoye-8uns5.jpeg",
     "current_price": "5,499",
     "original_price": "6,000",
@@ -396,12 +518,35 @@
     ],
     "highlights_images": [
       "https://images.priceoye.pk/media/qcy-t13-anc-2/qcy-t13-anc-2-8mq0l.png"
+    ],
+    "questions_answers": [
+      {
+        "question": "Agar koi issue hou tou return ho jae ga",
+        "answer": "We provide genuine and sealed-packed products with an official brand warranty if it is mentioned by the brand itself. We also provide a 3-day check warranty, for further information please visit our website at : https://priceoye.pk/return-policy"
+      },
+      {
+        "question": "It s no warranty in 1Year",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk or visit its official website."
+      },
+      {
+        "question": " Is this buds app work in pakistan",
+        "answer": "Thank you for reaching out to us. Please stay tuned to our website and social media to check for the availability of the requested stock."
+      },
+      {
+        "question": "Is this product is original If this is original then why these buds price is low then the others website",
+        "answer": "Priceoye provides it's customer's with the best available prices at an affordable rates with genuine and branded products only."
+      },
+      {
+        "question": "Kab tk available honge",
+        "answer": "For price, specifications, availability, and other details regarding your desired product, please visit our website at : https://priceoye.pk"
+      }
     ]
   },
 
   {
     "id": 9,
     "name": "Redmi Buds 6 Active Wireless Earbuds",
+    "slug": "redmi-buds-6-active-wireless-earbuds",
     "image": "https://images.priceoye.pk/redmi-buds-6-active-wireless-earbuds-pakistan-priceoye-h6kkk-270x270.webp",
     "current_price": "4,549",
     "original_price": "7,399",
@@ -461,6 +606,7 @@
   {
     "id": 10,
     "name": "Realme Buds T110",
+    "slug": "realme-buds-t110",
     "image": "https://images.priceoye.pk/realme-buds-t110-pakistan-priceoye-w0l3s-270x270.webp",
     "current_price": "4,999",
     "original_price": "10,500",
@@ -512,6 +658,7 @@
   {
     "id": 11,
     "name": "Soundpeats Engine4 Wireless Earbuds",
+    "slug": "soundpeats-engine4-wireless-earbuds",
     "image": "https://images.priceoye.pk/soundpeats-engine4-wireless-earbuds-pakistan-priceoye-40ifu-270x270.webp",
     "current_price": "10,518",
     "original_price": "14,000",
@@ -559,6 +706,7 @@
   {
     "id": 12,
     "name": "Nothing Buds Pro 2",
+    "slug": "nothing-buds-pro-2",
     "image": "https://images.priceoye.pk/nothing-buds-2-pro-pakistan-priceoye-qouw0-270x270.webp",
     "current_price": "13,499",
     "original_price": "20,000",
