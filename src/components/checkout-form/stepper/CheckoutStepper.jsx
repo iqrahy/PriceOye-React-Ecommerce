@@ -19,18 +19,18 @@ const CheckoutStepper = () => {
                   "& .MuiStepLabel-label": {
                     color:
                       index < activeStep
-                        ? "#48AFFF" 
+                        ? "#48AFFF !important"
                         : index === activeStep
-                        ? "gray"
-                        : "gray", 
+                        ? "gray !important"
+                        : "gray !important",
                   },
                   "& .MuiStepIcon-root": {
                     color:
                       index < activeStep
-                        ? "#48AFFF" 
+                        ? "#48AFFF !important"
                         : index === activeStep
-                        ? "gray" 
-                        : "gray", 
+                        ? "gray !important"
+                        : "gray !important",
                   },
                 }}
               >

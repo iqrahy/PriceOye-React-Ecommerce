@@ -3,6 +3,8 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Button, IconButton, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import DeliveryDetails from "./delivery-details/DeliveryDetails";
+import DeliveryType from "./delivery-type/DeliveryType";
 
 const OrderDetailsForm = () => {
   const userData = localStorage.getItem("user");
@@ -37,12 +39,14 @@ const OrderDetailsForm = () => {
       <Box className="md:w-[70%] bg-white border px-4 py-6 mt-6 rounded-lg">
         <Box className="flex justify-between items-center">
           <Typography className="!text-md">2. Contact Information</Typography>
-          <IconButton
-            className="hover:!bg-transparent"
-            onClick={() => setIsEditing(true)}
-          >
-            <FontAwesomeIcon className="text-[#48AFFF]" icon={faEdit} />
-          </IconButton>
+          {!isEditing && (
+            <IconButton
+              className="hover:!bg-transparent"
+              onClick={() => setIsEditing(true)}
+            >
+              <FontAwesomeIcon className="text-[#48AFFF]" icon={faEdit} />
+            </IconButton>
+          )}
         </Box>
 
         {isEditing ? (
@@ -57,7 +61,7 @@ const OrderDetailsForm = () => {
                 sx={{ mb: 2 }}
               />
               <TextField
-              fullWidth
+                fullWidth
                 label="Email"
                 size="small"
                 value={email}
@@ -67,7 +71,7 @@ const OrderDetailsForm = () => {
             </Box>
             <Button
               variant="contained"
-             className="!bg-[#48AFFF] !capitalize !shadow-none !px-4 !py-2 !text-xs !mt-3"
+              className="!bg-[#48AFFF] !capitalize !shadow-none !px-4 !py-2 !text-xs !mt-3"
               onClick={handleSave}
             >
               Continue
@@ -88,6 +92,9 @@ const OrderDetailsForm = () => {
           </Box>
         )}
       </Box>
+
+      <DeliveryDetails/>
+      <DeliveryType/>
     </>
   );
 };

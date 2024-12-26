@@ -128,7 +128,7 @@ const Product = (props) => {
             <Button
               variant="contained"
               onClick={handleAddToCartClick}
-              className="!capitalize !mt-10 !bg-[#F88B2A] w-56"
+              className="!capitalize !mt-10 !bg-[#F88B2A] w-56 !shadow-none"
             >
               Add to Cart
             </Button>
