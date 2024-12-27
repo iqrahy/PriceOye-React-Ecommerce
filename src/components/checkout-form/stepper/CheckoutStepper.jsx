@@ -10,7 +10,7 @@ const CheckoutStepper = () => {
   const activeStep = 3;
   return (
     <>
-      <Box className="md:w-[70%]">
+      <Box className="">
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label, index) => (
             <Step key={label} completed={index < activeStep}>

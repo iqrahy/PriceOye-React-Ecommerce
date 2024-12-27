@@ -27,7 +27,7 @@ const DeliveryDetails = () => {
     type: "Home",
   });
   const [isEditing, setIsEditing] = useState(false); // Editing mode
-  const [selectedAddressIndex, setSelectedAddressIndex] = useState(null); // Selected address for delivery
+  const [selectedAddressIndex, setSelectedAddressIndex] = useState(null);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -60,7 +60,7 @@ const DeliveryDetails = () => {
   };
 
   return (
-    <Box className="md:w-[70%] bg-white border px-4 py-6 mt-6 rounded-lg">
+    <Box className="bg-white border px-4 py-6 mt-6 rounded-lg">
       <Box className="flex items-center justify-between">
         <Typography className="!text-md">3a. Delivery Information</Typography>
         {!isEditing && (

@@ -9,13 +9,17 @@ import { FreeMode, Thumbs } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../slices/cartSlice";
 
 const Product = (props) => {
   const { product } = props;
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleAddToCartClick = () => {
+    dispatch(addToCart(product));
     navigate("/checkout");
   };
 

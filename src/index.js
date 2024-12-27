@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import ProductDetails from './components/product-details/ProductDetails';
 import CheckoutForm from './components/checkout-form/CheckoutForm';
+import TrackingDetails from './components/tracking-details/TrackingDetails';
 
 
 const router = createBrowserRouter([
@@ -48,7 +49,11 @@ const router = createBrowserRouter([
           {
             path:'checkout',
             element: <ProtectedRoute> <CheckoutForm/> </ProtectedRoute>  
-          }
+          },
+          {
+            path:'orders',
+            element:  <TrackingDetails/>  
+          },
     
       ],
       errorElement: <Error/>

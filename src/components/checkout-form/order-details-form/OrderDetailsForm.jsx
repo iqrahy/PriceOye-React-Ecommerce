@@ -22,7 +22,7 @@ const OrderDetailsForm = () => {
 
   return (
     <>
-      <Box className="md:w-[70%] bg-white border px-4 py-6 mt-6 rounded-lg">
+      <Box className=" bg-white border px-4 py-6 mt-6 rounded-lg">
         <Typography className="!text-md">1. Mobile Number</Typography>
         <Box className="flex items-center gap-4 mt-4">
           <Typography className="!text-xs">03111234567</Typography>
@@ -36,7 +36,7 @@ const OrderDetailsForm = () => {
         </Box>
       </Box>
 
-      <Box className="md:w-[70%] bg-white border px-4 py-6 mt-6 rounded-lg">
+      <Box className="bg-white border px-4 py-6 mt-6 rounded-lg">
         <Box className="flex justify-between items-center">
           <Typography className="!text-md">2. Contact Information</Typography>
           {!isEditing && (

@@ -52,7 +52,9 @@ const Header = () => {
         <Link to={"account"}>My account</Link>
       </MenuItem>
       <Divider />
-      <MenuItem onClick={handleMenuClose}>Track my order</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Link to={"orders"}>Track my order</Link>
+      </MenuItem>
       <Divider />
       <MenuItem onClick={handleMenuClose}>Launch a complaint</MenuItem>
       <Divider />
