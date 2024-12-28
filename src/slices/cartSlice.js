@@ -18,13 +18,17 @@ const cartSlice = createSlice({
 
     setOrder: (state, action) => {
       // Append new order to the orders array
-      const updatedOrders = [...state.orders, action.payload];
-      state.orders = updatedOrders;
-      localStorage.setItem("orders", JSON.stringify(updatedOrders)); // Update orders in localStorage
+      const updatedOrders = [...state.orders, action.payload]; // Append new order
+  state.orders = updatedOrders;
+  localStorage.setItem("orders", JSON.stringify(updatedOrders)); // Update orders in localStorage
     },
+    clearCart: (state) => {
+      state.items = [];
+      localStorage.setItem("cartItems", JSON.stringify(state.items)); // Empty cart in localStorage
+    }
   },
 });
 
-export const { addToCart, removeFromCart, setOrder } =
+export const { addToCart, removeFromCart, setOrder, clearCart } =
   cartSlice.actions;
 export default cartSlice.reducer;
