@@ -16,6 +16,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { setUser } from "../../../slices/userSlice";
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -36,7 +38,10 @@ const SignUp = () => {
     password: yup
       .string()
       .min(8, "Password must be at least 8 characters long.")
-      .required("Password is required."),
+      .required("Password is required.") .matches(/[0-9]/, 'Password requires a number')
+      .matches(/[a-z]/, 'Password requires a lowercase letter')
+      .matches(/[A-Z]/, 'Password requires an uppercase letter')
+      .matches(/[^\w]/, 'Password requires a symbol'),
   });
 
   const {
@@ -49,36 +54,58 @@ const SignUp = () => {
   });
 
   const signUpHandler = (data) => {
-    
     const existingUser = JSON.parse(localStorage.getItem("user"));
-  
-    if (existingUser && (existingUser.email === data.email || existingUser.password === data.password)) {
+
+    if (
+      existingUser &&
+      (existingUser.email === data.email ||
+        existingUser.password === data.password)
+    ) {
       if (existingUser.email === data.email) {
-        alert("An account with this email already exists. Please try logging in.");
+        toast.error(
+          "An account with this email already exists. Please try logging in."
+        );
       } else {
-        alert("This password is already associated with another account. Please choose a different password.");
+        toast.error(
+          "This password is already associated with another account. Please choose a different password."
+        );
       }
       return;
     }
-  
+
     localStorage.setItem("user", JSON.stringify(data));
-  
- 
-    dispatch(setUser({ name: data.name, email: data.email, password: data.password }));
-  
-    alert("Account created successfully!");
-    navigate("/sign-in");
+
+    dispatch(
+      setUser({ name: data.name, email: data.email, password: data.password })
+    );
+
+    Swal.fire({
+      title: "Account created successfully!",
+      width: "400px",
+      heightAuto: false, 
+      padding: "10px",
+      confirmButtonText: 'Go to Login',
+      customClass: {
+        title: 'text-lg font-semibold',  
+        content: 'text-sm',
+        confirmButton: 'text-xs px-4 py-2 bg-[#48AFFF]'
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate('/sign-in');  
+      }
+    })
+
     reset();
   };
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
 
   return (
     <Box className="bg-slate-100 pt-20 h-[100vh] flex justify-center items-center">
+      <ToastContainer className="!w-96" />
       <Box className="w-96 bg-white p-5">
         <Typography variant="h5" className="text-center">
           Sign Up

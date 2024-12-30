@@ -15,6 +15,7 @@ import { store } from './app/store';
 import ProductDetails from './components/product-details/ProductDetails';
 import CheckoutForm from './components/checkout-form/CheckoutForm';
 import TrackingDetails from './components/tracking-details/TrackingDetails';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const router = createBrowserRouter([

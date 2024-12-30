@@ -64,7 +64,7 @@ const CheckoutProductDetail = (props) => {
               <Typography className="!text-xs text-[#75D72B]">Rs 0</Typography>
             </Box>
 
-            <Typography className="!text-sm text-[#75D72B] !mt-9 bg-slate-100 text-center py-2 px-20">
+            <Typography className="!text-sm text-[#75D72B] !mt-9 bg-slate-100 text-center py-2 lg:px-20">
               You're saving Rs{" "}
               {parseFloat(cartItem?.original_price?.replace(/,/g, "")) -
                 parseFloat(cartItem?.current_price?.replace(/,/g, ""))}
