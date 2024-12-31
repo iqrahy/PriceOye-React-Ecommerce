@@ -8,14 +8,13 @@ import ProductSpecifications from "./product-specifications/ProductSpecification
 import Reviews from "./reviews/Reviews";
 import CustomerQueries from "./customer-queries/CustomerQueries";
 import Footer from "../footer/Footer";
+import useScrollTo from "../useScrollTo/useScrollTo";
 
 const ProductDetails = () => {
   const { productName } = useParams();
   const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollTo()
 
   useEffect(() => {
     const foundProduct = ProductData.find((item) => item.name === productName);

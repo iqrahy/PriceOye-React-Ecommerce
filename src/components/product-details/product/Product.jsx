@@ -11,17 +11,11 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../slices/cartSlice";
+import useProduct from "./useProduct";
 
 const Product = (props) => {
   const { product } = props;
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const handleAddToCartClick = () => {
-    dispatch(addToCart(product));
-    navigate("/checkout");
-  };
+  const {thumbsSwiper, setThumbsSwiper, handleAddToCartClick} = useProduct(product)
 
   return (
     <Box className="pt-24 pb-4">

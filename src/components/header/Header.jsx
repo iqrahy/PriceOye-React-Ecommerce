@@ -1,75 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
-import MenuItem from "@mui/material/MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMicrophone } from "@fortawesome/free-solid-svg-icons";
 import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
-import { Button, Divider, Menu, Paper, Typography } from "@mui/material";
+import { Button, Paper, Typography } from "@mui/material";
 import AppMenu from "./AppMenu";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../slices/userSlice";
+import { Link } from "react-router-dom";
+import useHeader from "./useHeader";
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const user = useSelector((state) => state.user);
-  const isLoggedIn = !!user.email || !!localStorage.getItem("user");
-  const userName = user.name || JSON.parse(localStorage.getItem("user"))?.name;
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
-  };
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      id={menuId}
-      open={Boolean(anchorEl)}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>
-        <Link to={"account"}>My account</Link>
-      </MenuItem>
-      <Divider />
-      <MenuItem onClick={handleMenuClose}>
-        <Link to={"orders"}>Track my order</Link>
-      </MenuItem>
-      <Divider />
-      <MenuItem onClick={handleMenuClose}>Launch a complaint</MenuItem>
-      <Divider />
-      <MenuItem onClick={handleMenuClose}>Notifications</MenuItem>
-      <Divider />
-      <MenuItem
-        onClick={() => {
-          handleLogout();
-          handleMenuClose();
-        }}
-      >
-        Logout
-      </MenuItem>
-    </Menu>
-  );
+  const {
+    open,
+    toggleDrawer,
+    handleProfileMenuOpen,
+    handleLogout,
+    isLoggedIn,
+    userName,
+    renderMenu,
+    menuId,
+    navigate,
+  } = useHeader();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -186,7 +140,6 @@ const Header = () => {
         open={open}
         toggleDrawer={toggleDrawer}
         isLoggedIn={isLoggedIn}
-        navigate={navigate}
         handleLogout={handleLogout}
       />
     </Box>

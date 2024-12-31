@@ -1,25 +1,10 @@
 import { Box, Divider, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useCheckoutProductDetails from "./useCheckoutProductDetails";
 
-const CheckoutProductDetail = (props) => {
-  const [cartItem, setCartItem] = useState(null);
+const CheckoutProductDetail = () => {
 
-  useEffect(() => {
-    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
-    console.log("Cart Items from LocalStorage:", cartItems);
-
-    if (cartItems.length > 0) {
-      const lastAddedItem = cartItems[cartItems.length - 1]; 
-      setCartItem(lastAddedItem); 
-    }
-  }, []); 
-
-  console.log("Current Cart Item:", cartItem);
-
-  if (!cartItem) {
-    return <Typography>No item in cart</Typography>;
-  }
+  const {cartItem} = useCheckoutProductDetails()
 
   return (
     <>
@@ -79,7 +64,10 @@ const CheckoutProductDetail = (props) => {
           </Box>
         </Box>
       ) : (
-        <Typography>No item in cart</Typography>
+       <Box className="bg-white w-full py-5 px-3 mt-12 rounded-md !text-center flex flex-col justify-center items-center h-72">
+         <Typography className="!text-xl !font-semibold">Your cart is empty.</Typography>
+
+       </Box>
       )}
     </>
   );

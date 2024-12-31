@@ -1,8 +1,12 @@
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import useScrollTo from "../useScrollTo/useScrollTo";
 
 const Error = () => {
+
+  useScrollTo()
+
   return (
     <Box className="flex flex-col md:flex-row justify-between items-center px-8 lg:px-28 pt-9">
       <Box>

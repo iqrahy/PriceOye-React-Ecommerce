@@ -11,16 +11,11 @@ import { removeFromOrders } from "../../slices/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
 import useScrollTo from "../useScrollTo/useScrollTo";
+import useTrackingDetails from "./useTrackingDetails";
 
 const TrackingDetails = () => {
-  const orders = useSelector((state) => state.cart.orders);
-  const dispatch = useDispatch();
 
-  const handleRemoveItem = (itemId) => {
-    dispatch(removeFromOrders({ id: itemId }));
-  };
-
-  useScrollTo()
+  const {orders, handleRemoveItem} = useTrackingDetails()
 
   return (
     <Box className="bg-slate-100 !pb-20 min-h-screen">

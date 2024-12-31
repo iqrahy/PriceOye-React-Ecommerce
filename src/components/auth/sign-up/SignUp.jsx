@@ -18,173 +18,109 @@ import { useForm, Controller } from "react-hook-form";
 import { setUser } from "../../../slices/userSlice";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
+import useScrollTo from "../../useScrollTo/useScrollTo";
+import useSignUp from "./useSignUp";
 
 const SignUp = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
-
-  const schema = yup.object({
-    name: yup
-      .string()
-      .min(3, "Name must be at least 3 characters long.")
-      .required("Name is required."),
-    email: yup
-      .string()
-      .email("Enter a valid email address.")
-      .required("Email address is required."),
-    password: yup
-      .string()
-      .min(8, "Password must be at least 8 characters long.")
-      .required("Password is required.") .matches(/[0-9]/, 'Password requires a number')
-      .matches(/[a-z]/, 'Password requires a lowercase letter')
-      .matches(/[A-Z]/, 'Password requires an uppercase letter')
-      .matches(/[^\w]/, 'Password requires a symbol'),
-  });
-
   const {
+    showPassword,
     control,
     handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const signUpHandler = (data) => {
-    const existingUser = JSON.parse(localStorage.getItem("user"));
-
-    if (
-      existingUser &&
-      (existingUser.email === data.email ||
-        existingUser.password === data.password)
-    ) {
-      if (existingUser.email === data.email) {
-        toast.error(
-          "An account with this email already exists. Please try logging in."
-        );
-      } else {
-        toast.error(
-          "This password is already associated with another account. Please choose a different password."
-        );
-      }
-      return;
-    }
-
-    localStorage.setItem("user", JSON.stringify(data));
-
-    dispatch(
-      setUser({ name: data.name, email: data.email, password: data.password })
-    );
-
-    Swal.fire({
-      title: "Account created successfully!",
-      width: "400px",
-      heightAuto: false, 
-      padding: "10px",
-      confirmButtonText: 'Go to Login',
-      customClass: {
-        title: 'text-lg font-semibold',  
-        content: 'text-sm',
-        confirmButton: 'text-xs px-4 py-2 bg-[#48AFFF]'
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate('/sign-in');  
-      }
-    })
-
-    reset();
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    signUpHandler,
+    errors,
+    togglePasswordVisibility,
+  } = useSignUp();
 
   return (
-    <Box className="bg-slate-100 pt-20 h-[100vh] flex justify-center items-center">
+    <Box className="bg-slate-100 pt-28 lg:pt-24 h-[100vh] flex justify-center lg:items-center">
       <ToastContainer className="!w-96" />
-      <Box className="w-96 bg-white p-5">
-        <Typography variant="h5" className="text-center">
-          Sign Up
-        </Typography>
-        <Typography className="text-center mt-2 mb-5 text-sm">
-          Enter your details to create an account.
-        </Typography>
+      <Box className="px-4">
+        <Box className="w-full md:w-[450px]">
+          <img src="https://static.priceoye.pk/images/login-header-img.svg" alt="" />
+        </Box>
+        <Box className="w-full md:w-[450px] bg-white p-5">
+          <Typography variant="h5" className="text-center">
+            Sign Up
+          </Typography>
+          <Typography className="text-center !mb-5 text-sm">
+            Enter your details to create an account.
+          </Typography>
 
-        <form onSubmit={handleSubmit(signUpHandler)}>
-          <Box className="my-3">
-            <Controller
-              name="name"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  fullWidth
-                  size="small"
-                  variant="outlined"
-                  placeholder="Full Name"
-                  {...field}
-                />
-              )}
-            />
-            <Typography color="error">{errors.name?.message}</Typography>
-          </Box>
+          <form onSubmit={handleSubmit(signUpHandler)}>
+            <Box className="my-3">
+              <Controller
+                name="name"
+                control={control}
+                render={({ field }) => (
+                  <TextField
+                    fullWidth
+                    size="small"
+                    variant="outlined"
+                    placeholder="Full Name"
+                    {...field}
+                  />
+                )}
+              />
+              <Typography color="error">{errors.name?.message}</Typography>
+            </Box>
 
-          <Box className="my-3">
-            <Controller
-              name="email"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  fullWidth
-                  size="small"
-                  type="email"
-                  variant="outlined"
-                  placeholder="Email"
-                  {...field}
-                />
-              )}
-            />
-            <Typography color="error">{errors.email?.message}</Typography>
-          </Box>
+            <Box className="my-3">
+              <Controller
+                name="email"
+                control={control}
+                render={({ field }) => (
+                  <TextField
+                    fullWidth
+                    size="small"
+                    type="email"
+                    variant="outlined"
+                    placeholder="Email"
+                    {...field}
+                  />
+                )}
+              />
+              <Typography color="error">{errors.email?.message}</Typography>
+            </Box>
 
-          <Box className="my-3">
-            <Controller
-              name="password"
-              control={control}
-              render={({ field }) => (
-                <OutlinedInput
-                  fullWidth
-                  size="small"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton onClick={togglePasswordVisibility} edge="end">
-                        <FontAwesomeIcon
-                          icon={showPassword ? faEyeSlash : faEye}
-                        />
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  {...field}
-                />
-              )}
-            />
-            <Typography color="error">{errors.password?.message}</Typography>
-          </Box>
+            <Box className="my-3">
+              <Controller
+                name="password"
+                control={control}
+                render={({ field }) => (
+                  <OutlinedInput
+                    fullWidth
+                    size="small"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          onClick={togglePasswordVisibility}
+                          edge="end"
+                        >
+                          <FontAwesomeIcon
+                            icon={showPassword ? faEyeSlash : faEye}
+                          />
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    {...field}
+                  />
+                )}
+              />
+              <Typography color="error">{errors.password?.message}</Typography>
+            </Box>
 
-          <Button
-            type="submit"
-            variant="contained"
-            fullWidth
-            className="!bg-[#48afff] !capitalize"
-          >
-            Register
-          </Button>
-        </form>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              className="!bg-[#48afff] !capitalize !mt-5"
+            >
+              Register
+            </Button>
+          </form>
+        </Box>
       </Box>
     </Box>
   );

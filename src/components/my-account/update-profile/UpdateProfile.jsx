@@ -8,35 +8,13 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Controller, useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { updateUserName } from "../../../slices/userSlice";
+import { Controller } from "react-hook-form";
+import useUpdateProfile from "./useUpdateProfile";
 
 const UpdateProfile = () => {
-  const localStorageUser = JSON.parse(localStorage.getItem("user")) || {};
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
-
-  const { control, handleSubmit, reset } = useForm({
-    defaultValues: {
-      name: localStorageUser.name || user.name || "",
-      email: localStorageUser.email || user.email || "",
-    },
-  });
-
-  const updateProfileHandler = (data) => {
-    const updatedUser = { ...user, ...data };
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    dispatch(updateUserName(updatedUser));
-    reset(updatedUser);
-  };
-
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-
+  const { control, handleSubmit, updateProfileHandler } = useUpdateProfile();
   return (
     <Box className=" bg-slate-100 flex justify-center pt-10 md:pt-[100px] md:pb-60 pb-14 lg:pb-40">
       <Box className="w-full mx-3 md:mx-14 lg:w-1/2 mt-20">

@@ -27,7 +27,7 @@ import { Link } from "react-router-dom";
 import { faBell, faCircleUser } from "@fortawesome/free-regular-svg-icons";
 
 const AppMenu = (props) => {
-  const { toggleDrawer, open, isLoggedIn, navigate, setIsLoggedIn, handleLogout } = props;
+  const { toggleDrawer, open, isLoggedIn, handleLogout } = props;
 
   const list = [
     {
@@ -127,7 +127,7 @@ const AppMenu = (props) => {
                 <Box className="flex items-center !text-white mb-2">
                   <FontAwesomeIcon className="text-xl" icon={faLocationDot} />
                   <MenuItem className="text-xs !important">
-                    Track my order
+                    <Link to={'orders'}>Track my order</Link>
                   </MenuItem>
                 </Box>
                 <Box className="flex items-center !text-white mb-2">

@@ -13,12 +13,11 @@ import ReasonToBuy from './reason-to-buy/ReasonToBuy'
 import TrimmerShaverCard from './trimmer-shaver-card/TrimmerShaverCard'
 import Services from './services/Services'
 import Footer from '../footer/Footer'
+import useScrollTo from '../useScrollTo/useScrollTo'
 
 const Home = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useScrollTo()
 
   return (
     <Box className="!bg-slate-100">

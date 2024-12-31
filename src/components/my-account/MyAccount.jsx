@@ -1,23 +1,13 @@
 import { faCircleUser, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, IconButton, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import AccountManagement from "./account-management/AccountManagement";
+import useMyAccount from "./useMyAccount";
 
 const MyAccount = () => {
-  const [userName, setUserName] = useState("");
-
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser && storedUser.fullName) {
-      setUserName(storedUser.fullName);
-    }
-  }, []);
-
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-    
+ 
+    const {userName} = useMyAccount()
 
   return (
     <Box className="bg-slate-100 pt-28 pb-5">
