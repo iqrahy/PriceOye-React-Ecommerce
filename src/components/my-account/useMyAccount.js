@@ -7,8 +7,8 @@ const useMyAccount = () => {
 
     useEffect(() => {
       const storedUser = JSON.parse(localStorage.getItem("user"));
-      if (storedUser && storedUser.fullName) {
-        setUserName(storedUser.fullName);
+      if (storedUser && storedUser.name) {
+        setUserName(storedUser.name);
       }
     }, []);
   
