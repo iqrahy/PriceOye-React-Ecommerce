@@ -14,7 +14,7 @@ import { Controller } from "react-hook-form";
 import useUpdateProfile from "./useUpdateProfile";
 
 const UpdateProfile = () => {
-  const { control, handleSubmit, updateProfileHandler } = useUpdateProfile();
+  const { control, handleSubmit, updateProfileHandler, errors } = useUpdateProfile();
   return (
     <Box className=" bg-slate-100 flex justify-center pt-10 md:pt-[100px] md:pb-60 pb-14 lg:pb-40">
       <Box className="w-full mx-3 md:mx-14 lg:w-1/2 mt-20">
@@ -43,6 +43,7 @@ const UpdateProfile = () => {
                   />
                 )}
               />
+              <Typography color="error">{errors.name?.message}</Typography>
             </Box>
 
             <Box className="my-3">
@@ -60,6 +61,7 @@ const UpdateProfile = () => {
                   />
                 )}
               />
+              <Typography color="error">{errors.email?.message}</Typography>
             </Box>
 
             <Box className="my-3">

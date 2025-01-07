@@ -9,7 +9,6 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-
 const useSignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,8 +19,9 @@ const useSignUp = () => {
   const schema = yup.object({
     name: yup
       .string()
+      .required("Name is required.")
       .min(3, "Name must be at least 3 characters long.")
-      .required("Name is required."),
+      .matches(/^[a-zA-Z ,.'-]+$/, "Name can only contain letters."),
     email: yup
       .string()
       .email("Enter a valid email address.")
@@ -93,7 +93,14 @@ const useSignUp = () => {
 
   useScrollTo();
 
-  return { showPassword, control, handleSubmit, signUpHandler, errors, togglePasswordVisibility };
+  return {
+    showPassword,
+    control,
+    handleSubmit,
+    signUpHandler,
+    errors,
+    togglePasswordVisibility,
+  };
 };
 
 export default useSignUp;

@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { FreeMode } from "swiper/modules";
 import useProductMedia from "./useProductMedia";
 
 const ProductWithMedia = () => {
@@ -22,10 +21,8 @@ const ProductWithMedia = () => {
       </Box>
 
       <Swiper
-        slidesPerView={4}
+        slidesPerView="auto"
         spaceBetween={30}
-        freeMode={true}
-        modules={[FreeMode]}
         className="container mx-auto !px-3 lg:!px-8"
       >
         {product.map((item) => (

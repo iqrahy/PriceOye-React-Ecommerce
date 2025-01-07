@@ -7,12 +7,11 @@ import "swiper/css/navigation";
 import { Grid } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faStar } from "@fortawesome/free-solid-svg-icons";
 import useSmartWatchGallery from "./useSmartWatchGallery";
 
-
 const SmartWatchGallery = () => {
- const {product} = useSmartWatchGallery()
+  const { product } = useSmartWatchGallery();
 
   return (
     <>
@@ -40,8 +39,10 @@ const SmartWatchGallery = () => {
             rows: 2,
           }}
           spaceBetween={15}
-          pagination={{
-            clickable: true,
+          loop={false}
+          navigation={{
+            prevEl: ".custom-prev",
+            nextEl: ".custom-next",
           }}
           modules={[Grid, Navigation]}
           className=" container mx-auto !px-3 lg:!px-5 !w-full !h-[580px] "
@@ -103,6 +104,14 @@ const SmartWatchGallery = () => {
               </Box>
             </SwiperSlide>
           ))}
+
+          <Box className="custom-prev z-10 h-8 w-8 text-center flex justify-center items-center bg-black bg-opacity-45 text-white absolute left-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:bg-opacity-60 hover:border">
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </Box>
+
+          <Box className="custom-next z-10 h-8 w-8 text-center flex justify-center items-center bg-black bg-opacity-45 text-white absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer hover:bg-opacity-60 hover:border">
+            <FontAwesomeIcon icon={faChevronRight} />
+          </Box>
         </Swiper>
       </Box>
 
