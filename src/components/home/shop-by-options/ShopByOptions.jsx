@@ -51,7 +51,7 @@ const ShopByOptions = () => {
           </Button>
         </Box>
 
-        <Box className="flex justify-between flex-wrap items-center gap-2 md:gap-4 lg:mx-24" >
+        <Box className="flex justify-center flex-wrap items-center gap-4 lg:gap-6 lg:mx-24" >
           {ShopByBrand.map((brand) => (
             <Box key={brand.id} className="text-center">
               <img className="w-14 lg:w-20" src={brand.image} alt={brand.title} />

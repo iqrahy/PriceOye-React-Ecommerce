@@ -25,7 +25,11 @@ const useSignUp = () => {
     email: yup
       .string()
       .email("Enter a valid email address.")
-      .required("Email address is required."),
+      .required("Email address is required.")
+      .matches(
+        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        "Invalid email address. Please use a valid format."
+      ),
     password: yup
       .string()
       .min(8, "Password must be at least 8 characters long.")
