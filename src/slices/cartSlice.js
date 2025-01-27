@@ -4,7 +4,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: JSON.parse(localStorage.getItem("cartItems")) || [],
-    orders: JSON.parse(localStorage.getItem("orders")) || [], 
+    orders: JSON.parse(localStorage.getItem("orders")) || [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -18,37 +18,20 @@ const cartSlice = createSlice({
     },
 
     setOrder: (state, action) => {
-      const checkoutDate = new Date().toISOString();
-    
-      const orderWithDate = {
-        ...action.payload,
-        checkoutDate,
-      };
-    
-      state.orders.push(orderWithDate);
-      localStorage.setItem("orders", JSON.stringify(state.orders));
+      const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+
+      const updatedOrders = [...existingOrders, action.payload];
+
+      state.orders = updatedOrders;
+      localStorage.setItem("orders", JSON.stringify(updatedOrders));
     },
     clearCart: (state) => {
       state.items = [];
-      localStorage.setItem("cartItems", JSON.stringify(state.items)); 
-    },
-    removeFromOrders: (state, action) => {
-      state.orders = state.orders
-        .map((order) => ({
-          ...order,
-          items: order.items.filter((item) => item.id !== action.payload.id),
-        }))
-        .filter((order) => order.items.length > 0); 
-      localStorage.setItem("orders", JSON.stringify(state.orders));
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
   },
 });
 
-export const {
-  addToCart,
-  removeFromCart,
-  setOrder,
-  clearCart,
-  removeFromOrders,
-} = cartSlice.actions;
+export const { addToCart, removeFromCart, setOrder, clearCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,21 +1,9 @@
-import {
-  AppBar,
-  Box,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { removeFromOrders } from "../../slices/cartSlice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmarkCircle } from "@fortawesome/free-regular-svg-icons";
-import useScrollTo from "../useScrollTo/useScrollTo";
 import useTrackingDetails from "./useTrackingDetails";
 
 const TrackingDetails = () => {
-
-  const {orders, handleRemoveItem} = useTrackingDetails()
+  const { orders } = useTrackingDetails();
 
   return (
     <Box className="bg-slate-100 !pb-20 min-h-screen">
@@ -32,34 +20,14 @@ const TrackingDetails = () => {
               orders.map((order, index) => (
                 <Box key={index}>
                   {order.items.map((item) => (
-                    <Box className="mb-2 bg-white py-9 px-3 md:px-6" key={item.id}>
-                      <Box className="flex justify-between items-center mb-7">
-                        <Box className="flex gap-2 md:gap-6">
-                          <Typography className="!text-sm !text-gray-500">
-                            Placed on{" "}
-                          </Typography>
-                          <Typography className="!text-sm !text-gray-500">
-                            {" "}
-                            {new Date(order.checkoutDate).toLocaleString()}
-                          </Typography>
-                        </Box>
-
-                        <Box className="flex items-center justify-end">
-                          <Typography className=" !text-[#0BB07E] !bg-[#F0FAF7] w-28 text-center !rounded-md px-2 py-1 !text-sm">
-                            Order Placed
-                          </Typography>
-
-                          <IconButton
-                            variant="contained"
-                            color="error"
-                            onClick={() => handleRemoveItem(item.id)}
-                          >
-                            <FontAwesomeIcon
-                              className="!text-[18px]"
-                              icon={faXmarkCircle}
-                            />
-                          </IconButton>
-                        </Box>
+                    <Box
+                      className="mb-2 bg-white py-9 px-3 md:px-6"
+                      key={item.id}
+                    >
+                      <Box className="flex justify-end mb-7">
+                        <Typography className=" !text-[#0BB07E] !bg-[#F0FAF7] w-28 text-center !rounded-md px-2 py-1 !text-sm">
+                          Order Placed
+                        </Typography>
                       </Box>
 
                       <Box className="flex gap-4 items-center">
@@ -70,14 +38,18 @@ const TrackingDetails = () => {
                         />
 
                         <Box className="flex flex-col">
-                          <Typography className="!text-lg">{item.name}</Typography>
-                          <Typography className="!text-md !text-gray-500">{item.quantity}</Typography>
-                         <Box className="flex items-start gap-1 mt-2">
-                         <Typography className="!text-sm">Rs</Typography>
-                         <Typography className="!text-lg">
-                            
-                            {item.current_price}</Typography>
-                         </Box>
+                          <Typography className="!text-lg">
+                            {item.name}
+                          </Typography>
+                          <Typography className="!text-md !text-gray-500">
+                            {item.quantity}
+                          </Typography>
+                          <Box className="flex items-start gap-1 mt-2">
+                            <Typography className="!text-sm">Rs</Typography>
+                            <Typography className="!text-lg">
+                              {item.current_price}
+                            </Typography>
+                          </Box>
                         </Box>
                       </Box>
                     </Box>
